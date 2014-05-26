@@ -1,0 +1,59 @@
+#lang scheme
+(
+ 
+ (program (("(define" "(" identifier number) 
+           (non-term expression) 
+           (reduce #<procedure:a-program>)))
+ 
+ (expression (("(define")
+              (string "(define") 
+              (term identifier) 
+              (non-term optional-type) 
+              (string ")") 
+              (non-term expression) 
+              (string ")") 
+              (reduce #<procedure:proc-exp>))
+             
+             (("(") 
+              (string "(") 
+              (non-term expression) 
+              (non-term expression) 
+              (string ")") 
+              (reduce #<procedure:call-exp>))
+             
+             ((identifier) 
+              (term identifier) 
+              (reduce #<procedure:var-exp>))
+             
+             ((number) 
+              (term number) 
+              (reduce #<procedure:const-exp>))) 
+ 
+ (optional-type (("%tvar-type" "(" "bool" "int")
+                 (non-term type) 
+                 (reduce #<procedure:a-type>))
+                
+                (("?") 
+                 (string "?")
+                 (reduce #<procedure:no-type>)))
+ 
+ (type (("%tvar-type")
+        (string "%tvar-type") 
+        (term number)
+        (reduce #<procedure:tvar-type>))
+       
+       (("(")
+        (string "(")
+        (non-term type)
+        (string "->")
+        (non-term type)
+        (string ")")
+        (reduce #<procedure:proc-type>))
+       
+       (("bool") 
+        (string "bool") 
+        (reduce #<procedure:bool-type>))
+       
+       (("int") 
+        (string "int")
+        (reduce #<procedure:int-type>))))

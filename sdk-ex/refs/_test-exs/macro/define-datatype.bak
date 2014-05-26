@@ -1,0 +1,10 @@
+#lang scheme
+
+(define-syntax define-datatype
+  (lambda (stx)
+    (syntax-case stx ()
+      [(_ name pred-name)
+       (printf "1st\n")];"~s ~s\n" name pred-name)]
+      [else (printf "else\n")])))
+
+(define-datatype a b)

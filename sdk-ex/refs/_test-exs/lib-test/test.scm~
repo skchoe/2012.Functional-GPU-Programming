@@ -1,0 +1,8 @@
+#lang scheme
+(require scheme/foreign)
+(unsafe!)
+(define foo 
+  (get-ffi-obj 'foo
+               (ffi-lib "libtest.so")
+               (_fun _int -> _int)
+               (lambda () (error "ERR\n"))))

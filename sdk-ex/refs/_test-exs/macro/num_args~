@@ -1,0 +1,18 @@
+#lang scheme
+
+(define-syntax foo
+  (lambda (stx)
+  (syntax-case stx ()
+    [(a b) (begin
+             (set! a 10)
+            (set! b 20)
+            (printf "~s ~s\n" a b))]
+    [(a b c) (begin
+             (set! a 10)
+             (set! b 20)
+             (set! c 30)
+            (printf "~s ~s ~s\n" a b c))]
+    [_ (printf "non\n")])))
+
+(foo 2 3)
+    

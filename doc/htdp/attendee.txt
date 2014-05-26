@@ -1,0 +1,10 @@
+5.0 120
+4.9 120+15
+4.8 120+15+15
+
+5.0 - 0.1 - ... => 120 + 15 + ...
+
+(define (attendee decrese-times)
+  (* 15 decrese-times))
+
+(

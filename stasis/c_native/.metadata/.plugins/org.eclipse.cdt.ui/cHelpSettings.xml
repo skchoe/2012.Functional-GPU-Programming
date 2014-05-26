@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cHelpSettings>
+<project name="sba_culib">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="sba_cuapp">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+</cHelpSettings>

@@ -1,0 +1,101 @@
+
+__device__ int ex = 123;
+__device__ int id(int x, int* x20080 ) {
+__device__ int x20080;
+ x20080 = x; 
+return;
+};
+__device__ int ey(int a, int* infix20062 ) {
+__device__ int infix20662;
+infix20062 = ( 1 + a ); 
+return infix20662;
+};
+__device__ int blocksize = 10;
+__device__ int blocksize2 = 100;
+__device__ int single-value1(int n, int *infix21152) {
+__device__ int infix21152;
+infix21152 = ( n + 1 ); 
+*infix21153 = infix21152; 
+return;
+};
+
+__device__ int single-value2(int n , int m, int* m21479 ) {
+__device__ int n21355;
+ n21355 = n;
+ __device__ int m21478;
+ m21478 = m; 
+ *m21479 = m21478;
+return;
+};
+
+__device__ int single-value(int n, int* n21796) {
+__device__ int n21795;
+ n21795 = n; 
+ *n21796 = n21795; 
+return;
+};
+
+// global variable assignment
+__device__ void void-ftn!(int arg , int arg2 ) {
+blocksizearg = blocksize21982;
+return;
+};
+
+__device__ int negate(int a, int* b) {
+__device__ int b1;
+ b1 = (a)? 0 : a; 
+ *b = b1;
+return;
+};
+__device__ float change-sign(float n ) {
+__device__ float infix22469;
+ ( -1 * n ); 
+return infix22469;
+};
+typedef struct Date {
+float* day;
+char* month;
+float* year;
+} Date;
+Date* make_Date ((float day22722 , char month22723 , float year22724 )) {
+	Date->day = day22722;
+	Date->month = month22723;
+	Date->year = year22724;
+
+};
+float* Date_day (Date* Date22745) {
+	float* day22746 = Date22745->day;
+	return day22746;
+}
+char* Date_month (Date* Date22749) {
+	char* month22750 = Date22749->month;
+	return month22750;
+}
+float* Date_year (Date* Date22753) {
+	float* year22754 = Date22753->year;
+	return year22754;
+}
+
+__device__ Date d = make-Date(28, November, 2008);
+__device__ int threadsize = blocksize;
+__device__ int x = 100;
+__device__ int y = x;
+__device__ int a = 300;
+__device__ int bf = 0;
+__device__ int bt = 1;
+__device__ char bigger?(int x ) {
+__device__ char if23346;
+ __device__ int infix23313;
+ ( x < 200 );
+ if (infix23313 != 0) {
+	__device__ char A;
+ A = "A";
+	if23346 = A;
+}
+else {
+	__device__ char B;
+ B = "B";
+	if23346 = B;
+}; 
+return if23346;
+};

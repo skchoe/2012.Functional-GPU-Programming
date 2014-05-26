@@ -1,0 +1,873 @@
+	.version 1.4
+	.target sm_10, map_f64_to_f32
+	// compiled with /home/u0332192/local/cuda/open64/lib//be
+	// nvopencc 4.0 built on 2011-05-12
+
+	//-----------------------------------------------------------
+	// Compiling cu_lib.cpp3.i (/tmp/ccBI#.QVP8rz)
+	//-----------------------------------------------------------
+
+	//-----------------------------------------------------------
+	// Options:
+	//-----------------------------------------------------------
+	//  Target:ptx, ISA:sm_10, Endian:little, Pointer Size:64
+	//  -O3	(Optimization level)
+	//  -g0	(Debug level)
+	//  -m2	(Report advisories)
+	//-----------------------------------------------------------
+
+	.file	1	"<command-line>"
+	.file	2	"cu_lib.cudafe2.gpu"
+	.file	3	"/usr/lib/gcc/x86_64-pc-linux-gnu/4.4.5/include/stddef.h"
+	.file	4	"/home/u0332192/local/cuda/include/crt/device_runtime.h"
+	.file	5	"/home/u0332192/local/cuda/include/host_defines.h"
+	.file	6	"/home/u0332192/local/cuda/include/builtin_types.h"
+	.file	7	"/home/u0332192/local/cuda/include/device_types.h"
+	.file	8	"/home/u0332192/local/cuda/include/driver_types.h"
+	.file	9	"/home/u0332192/local/cuda/include/surface_types.h"
+	.file	10	"/home/u0332192/local/cuda/include/texture_types.h"
+	.file	11	"/home/u0332192/local/cuda/include/vector_types.h"
+	.file	12	"/home/u0332192/local/cuda/include/device_launch_parameters.h"
+	.file	13	"/home/u0332192/local/cuda/include/crt/storage_class.h"
+	.file	14	"/usr/include/bits/types.h"
+	.file	15	"/usr/include/time.h"
+	.file	16	"cu_lib.cu"
+	.file	17	"/home/u0332192/local/cuda/include/common_functions.h"
+	.file	18	"/home/u0332192/local/cuda/include/math_functions.h"
+	.file	19	"/home/u0332192/local/cuda/include/math_constants.h"
+	.file	20	"/home/u0332192/local/cuda/include/device_functions.h"
+	.file	21	"/home/u0332192/local/cuda/include/sm_11_atomic_functions.h"
+	.file	22	"/home/u0332192/local/cuda/include/sm_12_atomic_functions.h"
+	.file	23	"/home/u0332192/local/cuda/include/sm_13_double_functions.h"
+	.file	24	"/home/u0332192/local/cuda/include/sm_20_atomic_functions.h"
+	.file	25	"/home/u0332192/local/cuda/include/sm_20_intrinsics.h"
+	.file	26	"/home/u0332192/local/cuda/include/surface_functions.h"
+	.file	27	"/home/u0332192/local/cuda/include/texture_fetch_functions.h"
+	.file	28	"/home/u0332192/local/cuda/include/math_functions_dbl_ptx1.h"
+
+
+	.entry init_constraints_kernel (
+		.param .u64 __cudaparm_init_constraints_kernel_constraints,
+		.param .s32 __cudaparm_init_constraints_kernel_num_var,
+		.param .s32 __cudaparm_init_constraints_kernel_num_const,
+		.param .s32 __cudaparm_init_constraints_kernel_size_constraint,
+		.param .u64 __cudaparm_init_constraints_kernel_new_constraints,
+		.param .u64 __cudaparm_init_constraints_kernel_analysis,
+		.param .u64 __cudaparm_init_constraints_kernel_empty_contraint)
+	{
+	.reg .u16 %rh<4>;
+	.reg .u32 %r<18>;
+	.reg .u64 %rd<28>;
+	.reg .pred %p<10>;
+	.loc	16	81	0
+$LDWbegin_init_constraints_kernel:
+	ld.param.s32 	%r1, [__cudaparm_init_constraints_kernel_num_var];
+	cvt.s32.u16 	%r2, %tid.y;
+	mul.lo.s32 	%r3, %r1, %r2;
+	cvt.s32.u16 	%r4, %tid.x;
+	add.s32 	%r5, %r4, %r3;
+	ld.param.s32 	%r6, [__cudaparm_init_constraints_kernel_size_constraint];
+	mul.lo.s32 	%r7, %r5, %r6;
+	cvt.s64.s32 	%rd1, %r7;
+	ld.param.u64 	%rd2, [__cudaparm_init_constraints_kernel_constraints];
+	add.u64 	%rd3, %rd1, %rd2;
+	ld.global.s8 	%r8, [%rd3+0];
+	mov.u32 	%r9, 95;
+	setp.ne.s32 	%p1, %r8, %r9;
+	@%p1 bra 	$Lt_0_4866;
+	ld.global.s8 	%r10, [%rd3+1];
+	mov.u32 	%r11, 118;
+	setp.eq.s32 	%p2, %r10, %r11;
+	@%p2 bra 	$Lt_0_5122;
+	mov.u32 	%r12, 99;
+	setp.eq.s32 	%p3, %r10, %r12;
+	@%p3 bra 	$Lt_0_5122;
+	mov.u32 	%r13, 108;
+	setp.ne.s32 	%p4, %r10, %r13;
+	@%p4 bra 	$Lt_0_4866;
+$Lt_0_5122:
+$L_0_2306:
+	ld.param.s32 	%r6, [__cudaparm_init_constraints_kernel_size_constraint];
+	cvt.s64.s32 	%rd4, %r6;
+	mov.u64 	%rd5, 0;
+	setp.le.s64 	%p5, %rd4, %rd5;
+	@%p5 bra 	$L_0_1794;
+	mov.s64 	%rd6, %rd4;
+	mul.lo.s32 	%r14, %r5, 8;
+	cvt.s64.s32 	%rd7, %r14;
+	ld.param.u64 	%rd8, [__cudaparm_init_constraints_kernel_analysis];
+	add.s64 	%rd9, %rd1, %rd8;
+	ld.param.u64 	%rd2, [__cudaparm_init_constraints_kernel_constraints];
+	add.s64 	%rd10, %rd7, %rd2;
+	mov.s64 	%rd11, %rd9;
+	add.s64 	%rd12, %rd9, %rd4;
+	mov.s64 	%rd13, %rd10;
+	mov.s64 	%rd14, %rd6;
+$Lt_0_3330:
+ //<loop> Loop body line 81, nesting depth: 1, estimated iterations: unknown
+	ld.global.u8 	%rh1, [%rd13+0];
+	st.global.u8 	[%rd11+0], %rh1;
+	add.s64 	%rd13, %rd13, 1;
+	add.s64 	%rd11, %rd11, 1;
+	setp.ne.s64 	%p6, %rd11, %rd12;
+	@%p6 bra 	$Lt_0_3330;
+	bra.uni 	$L_0_1794;
+$Lt_0_4866:
+$L_0_2050:
+	ld.param.s32 	%r6, [__cudaparm_init_constraints_kernel_size_constraint];
+	.loc	16	92	0
+	cvt.s64.s32 	%rd15, %r6;
+	mov.u64 	%rd16, 0;
+	setp.le.s64 	%p7, %rd15, %rd16;
+	@%p7 bra 	$Lt_0_3842;
+	mov.s64 	%rd17, %rd15;
+	mul.lo.s32 	%r15, %r5, 8;
+	cvt.s64.s32 	%rd18, %r15;
+	ld.param.u64 	%rd19, [__cudaparm_init_constraints_kernel_new_constraints];
+	add.s64 	%rd20, %rd1, %rd19;
+	.loc	16	81	0
+	ld.param.u64 	%rd2, [__cudaparm_init_constraints_kernel_constraints];
+	.loc	16	92	0
+	add.s64 	%rd21, %rd18, %rd2;
+	mov.s64 	%rd22, %rd20;
+	add.s64 	%rd23, %rd20, %rd15;
+	mov.s64 	%rd24, %rd21;
+	mov.s64 	%rd25, %rd17;
+$Lt_0_4354:
+ //<loop> Loop body line 92, nesting depth: 1, estimated iterations: unknown
+	ld.global.u8 	%rh2, [%rd24+0];
+	st.global.u8 	[%rd22+0], %rh2;
+	add.s64 	%rd24, %rd24, 1;
+	add.s64 	%rd22, %rd22, 1;
+	setp.ne.s64 	%p8, %rd22, %rd23;
+	@%p8 bra 	$Lt_0_4354;
+$Lt_0_3842:
+	mov.s32 	%r16, 0;
+	ld.param.u64 	%rd26, [__cudaparm_init_constraints_kernel_empty_contraint];
+	st.global.s32 	[%rd26+0], %r16;
+$L_0_1794:
+	.loc	16	95	0
+	exit;
+$LDWend_init_constraints_kernel:
+	} // init_constraints_kernel
+
+	.entry solve_constraints_kernel (
+		.param .u64 __cudaparm_solve_constraints_kernel_reflection,
+		.param .u64 __cudaparm_solve_constraints_kernel_constraint,
+		.param .s32 __cudaparm_solve_constraints_kernel_num_var,
+		.param .s32 __cudaparm_solve_constraints_kernel_num_const,
+		.param .u64 __cudaparm_solve_constraints_kernel_new_constraints,
+		.param .u64 __cudaparm_solve_constraints_kernel_analysis,
+		.param .u64 __cudaparm_solve_constraints_kernel_empty_constraint,
+		.param .u64 __cudaparm_solve_constraints_kernel_out1,
+		.param .u64 __cudaparm_solve_constraints_kernel_out2)
+	{
+	.reg .u16 %rh<67>;
+	.reg .u32 %r<122>;
+	.reg .u64 %rd<52>;
+	.reg .pred %p<47>;
+	.shared .align 1 .b8 __cuda___cuda_local_var_37814_31_non_const_sh_constraints112[2496];
+	.local .align 1 .b8 __cuda___cuda_value_320[8];
+	.local .align 1 .b8 __cuda___cuda_n_const_408[8];
+	.local .align 1 .b8 __cuda___cuda_n_const2_4816[8];
+	.loc	16	100	0
+$LDWbegin_solve_constraints_kernel:
+	.loc	16	113	0
+	cvt.s32.u16 	%r1, %tid.y;
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	cvt.s32.u16 	%r3, %tid.x;
+	mul.lo.s32 	%r4, %r1, %r2;
+	add.s32 	%r5, %r3, %r4;
+	mul.lo.s32 	%r6, %r5, 8;
+	cvt.s64.s32 	%rd1, %r6;
+	ld.param.u64 	%rd2, [__cudaparm_solve_constraints_kernel_constraint];
+	add.u64 	%rd3, %rd1, %rd2;
+	mul24.lo.s32 	%r7, %r1, 8;
+	cvt.u64.s32 	%rd4, %r7;
+	mul.lo.s32 	%r8, %r3, 832;
+	cvt.u64.s32 	%rd5, %r8;
+	mov.u64 	%rd6, __cuda___cuda_local_var_37814_31_non_const_sh_constraints112;
+	add.u64 	%rd7, %rd5, %rd6;
+	add.u64 	%rd8, %rd4, %rd7;
+	mov.s64 	%rd9, %rd8;
+	mov.s32 	%r9, 8;
+$Lt_1_85762:
+ //<loop> Loop body line 113, nesting depth: 1, iterations: 8
+	ld.global.u8 	%rh1, [%rd3+0];
+	st.shared.u8 	[%rd9+0], %rh1;
+	add.u64 	%rd3, %rd3, 1;
+	add.u64 	%rd9, %rd9, 1;
+	sub.s32 	%r9, %r9, 1;
+	mov.u32 	%r10, 0;
+	setp.ne.s32 	%p1, %r9, %r10;
+	@%p1 bra 	$Lt_1_85762;
+	.loc	16	115	0
+	mov.s64 	%rd10, %rd8;
+	ld.param.u64 	%rd11, [__cudaparm_solve_constraints_kernel_out1];
+	mov.s64 	%rd12, %rd11;
+	mov.s32 	%r11, 8;
+$Lt_1_86786:
+ //<loop> Loop body line 115, nesting depth: 1, iterations: 8
+	ld.shared.u8 	%rh2, [%rd10+0];
+	st.global.u8 	[%rd12+0], %rh2;
+	add.u64 	%rd10, %rd10, 1;
+	add.u64 	%rd12, %rd12, 1;
+	sub.s32 	%r11, %r11, 1;
+	mov.u32 	%r12, 0;
+	setp.ne.s32 	%p2, %r11, %r12;
+	@%p2 bra 	$Lt_1_86786;
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	mov.u32 	%r14, 0;
+	setp.le.s32 	%p3, %r13, %r14;
+	@%p3 bra 	$Lt_1_87298;
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	mov.s32 	%r15, %r13;
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	115	0
+	mul.lo.s32 	%r16, %r2, 8;
+	cvt.s64.s32 	%rd13, %r16;
+	ld.param.u64 	%rd14, [__cudaparm_solve_constraints_kernel_analysis];
+	mul24.lo.s32 	%r17, %r3, 8;
+	cvt.s64.s32 	%rd15, %r17;
+	add.u64 	%rd16, %rd15, %rd14;
+	mov.s32 	%r18, 0;
+	mov.s32 	%r19, %r15;
+$Lt_1_87810:
+ //<loop> Loop body line 115, nesting depth: 1, estimated iterations: unknown
+	.loc	16	76	0
+	ld.global.s8 	%rh3, [%rd16+0];
+	st.local.s8 	[__cuda___cuda_value_320+0], %rh3;
+	ld.global.s8 	%rh4, [%rd16+1];
+	st.local.s8 	[__cuda___cuda_value_320+1], %rh4;
+	ld.global.s8 	%rh5, [%rd16+2];
+	st.local.s8 	[__cuda___cuda_value_320+2], %rh5;
+	ld.global.s8 	%rh6, [%rd16+3];
+	st.local.s8 	[__cuda___cuda_value_320+3], %rh6;
+	ld.global.s8 	%rh7, [%rd16+4];
+	st.local.s8 	[__cuda___cuda_value_320+4], %rh7;
+	ld.global.s8 	%rh8, [%rd16+5];
+	st.local.s8 	[__cuda___cuda_value_320+5], %rh8;
+	ld.global.s8 	%rh9, [%rd16+6];
+	st.local.s8 	[__cuda___cuda_value_320+6], %rh9;
+	ld.global.s8 	%rh10, [%rd16+7];
+	st.local.s8 	[__cuda___cuda_value_320+7], %rh10;
+	.loc	16	117	0
+	ld.local.s8 	%r20, [__cuda___cuda_value_320+0];
+	mov.u32 	%r21, 0;
+	setp.eq.s32 	%p4, %r20, %r21;
+	@%p4 bra 	$Lt_1_122114;
+	.loc	16	120	0
+	st.local.s8 	[__cuda___cuda_n_const_408+0], %r22;
+	st.local.s8 	[__cuda___cuda_n_const_408+1], %r22;
+	st.local.s8 	[__cuda___cuda_n_const_408+2], %r22;
+	st.local.s8 	[__cuda___cuda_n_const_408+3], %r22;
+	st.local.s8 	[__cuda___cuda_n_const_408+4], %r22;
+	st.local.s8 	[__cuda___cuda_n_const_408+5], %r22;
+	st.local.s8 	[__cuda___cuda_n_const_408+6], %r22;
+	st.local.s8 	[__cuda___cuda_n_const_408+7], %r22;
+	.loc	16	121	0
+	st.local.s8 	[__cuda___cuda_n_const2_4816+0], %r23;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+1], %r23;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+2], %r23;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+3], %r23;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+4], %r23;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+5], %r23;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+6], %r23;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+7], %r23;
+	.loc	16	120	0
+	ld.shared.s8 	%r24, [%rd8+0];
+	mov.s32 	%r25, 95;
+	setp.eq.s32 	%p5, %r24, %r25;
+	@!%p5 bra 	$Lt_1_118018;
+	ld.shared.s8 	%r26, [%rd8+1];
+	mov.u32 	%r27, 80;
+	setp.ne.s32 	%p6, %r26, %r27;
+	@%p6 bra 	$Lt_1_118018;
+	mov.u32 	%r28, 95;
+	setp.ne.s32 	%p7, %r20, %r28;
+	@%p7 bra 	$Lt_1_118018;
+	ld.local.s8 	%r29, [__cuda___cuda_value_320+1];
+	mov.u32 	%r30, 118;
+	setp.ne.s32 	%p8, %r29, %r30;
+	@%p8 bra 	$Lt_1_118018;
+	.loc	16	124	0
+	mov.u64 	%rd17, __cuda___cuda_value_320;
+	mov.u64 	%rd18, __cuda___cuda_n_const_408;
+	mov.s32 	%r31, 8;
+$Lt_1_90114:
+ //<loop> Loop body line 124, nesting depth: 2, iterations: 8
+	ld.local.u8 	%rh11, [%rd17+0];
+	st.local.u8 	[%rd18+0], %rh11;
+	add.u64 	%rd17, %rd17, 1;
+	add.u64 	%rd18, %rd18, 1;
+	sub.s32 	%r31, %r31, 1;
+	mov.u32 	%r32, 0;
+	setp.ne.s32 	%p9, %r31, %r32;
+	@%p9 bra 	$Lt_1_90114;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	125	0
+	mov.s32 	%r33, %r13;
+	mov.s32 	%r34, 0;
+	mov.s32 	%r35, %r33;
+$Lt_1_91138:
+ //<loop> Loop body line 125, nesting depth: 2, estimated iterations: unknown
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	125	0
+	mul.lo.s32 	%r36, %r34, %r2;
+	mul.lo.s32 	%r37, %r36, 8;
+	sub.s32 	%r38, %r37, 8;
+	cvt.s64.s32 	%rd19, %r38;
+	.loc	16	115	0
+	ld.param.u64 	%rd14, [__cudaparm_solve_constraints_kernel_analysis];
+	.loc	16	125	0
+	add.u64 	%rd20, %rd19, %rd14;
+	ld.global.s8 	%r39, [%rd20+0];
+	mov.u32 	%r40, 0;
+	setp.ne.s32 	%p10, %r39, %r40;
+	@%p10 bra 	$Lt_1_91394;
+	.loc	16	64	0
+	mov.u64 	%rd21, __cuda___cuda_n_const_408;
+	mov.s64 	%rd22, %rd20;
+	mov.s32 	%r41, 8;
+$Lt_1_92418:
+ //<loop> Loop body line 64, nesting depth: 3, iterations: 8
+	ld.local.u8 	%rh12, [%rd21+0];
+	st.global.u8 	[%rd22+0], %rh12;
+	add.u64 	%rd21, %rd21, 1;
+	add.u64 	%rd22, %rd22, 1;
+	sub.s32 	%r41, %r41, 1;
+	mov.u32 	%r42, 0;
+	setp.ne.s32 	%p11, %r41, %r42;
+	@%p11 bra 	$Lt_1_92418;
+	bra.uni 	$LDWendi__Z12put_element2PciiiS_i_211_43;
+$Lt_1_91394:
+	.loc	16	59	0
+	add.s32 	%r34, %r34, 1;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	59	0
+	setp.ne.s32 	%p12, %r34, %r13;
+	@%p12 bra 	$Lt_1_91138;
+$LDWendi__Z12put_element2PciiiS_i_211_43:
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	125	0
+	mov.s32 	%r43, %r13;
+	ld.param.u64 	%rd23, [__cudaparm_solve_constraints_kernel_reflection];
+	sub.u64 	%rd24, %rd23, 8;
+	mov.s32 	%r44, 0;
+	mov.s32 	%r45, %r43;
+$Lt_1_93698:
+ //<loop> Loop body line 125, nesting depth: 2, estimated iterations: unknown
+	.loc	16	128	0
+	ld.global.s8 	%r46, [%rd24+0];
+	mov.u32 	%r47, 0;
+	setp.eq.s32 	%p13, %r46, %r47;
+	@%p13 bra 	$Lt_1_93954;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	130	0
+	mov.s32 	%r48, %r13;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	mov.s32 	%r34, 0;
+	mov.s32 	%r49, %r48;
+$Lt_1_94978:
+ //<loop> Loop body line 130, nesting depth: 3, estimated iterations: unknown
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	130	0
+	mul.lo.s32 	%r36, %r34, %r2;
+	mul.lo.s32 	%r50, %r36, 8;
+	sub.s32 	%r51, %r50, 8;
+	cvt.s64.s32 	%rd26, %r51;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	add.u64 	%rd27, %rd26, %rd25;
+	ld.global.s8 	%r52, [%rd27+0];
+	mov.u32 	%r53, 0;
+	setp.ne.s32 	%p14, %r52, %r53;
+	@%p14 bra 	$Lt_1_95234;
+	.loc	16	64	0
+	mov.s64 	%rd28, %rd24;
+	mov.s64 	%rd29, %rd27;
+	mov.s32 	%r54, 8;
+$Lt_1_96258:
+ //<loop> Loop body line 64, nesting depth: 4, iterations: 8
+	ld.global.u8 	%rh13, [%rd28+0];
+	st.global.u8 	[%rd29+0], %rh13;
+	add.u64 	%rd28, %rd28, 1;
+	add.u64 	%rd29, %rd29, 1;
+	sub.s32 	%r54, %r54, 1;
+	mov.u32 	%r55, 0;
+	setp.ne.s32 	%p15, %r54, %r55;
+	@%p15 bra 	$Lt_1_96258;
+	bra.uni 	$LDWendi__Z12put_element2PciiiS_i_211_41;
+$Lt_1_95234:
+	.loc	16	59	0
+	add.s32 	%r34, %r34, 1;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	59	0
+	setp.ne.s32 	%p16, %r34, %r13;
+	@%p16 bra 	$Lt_1_94978;
+$LDWendi__Z12put_element2PciiiS_i_211_41:
+	.loc	16	131	0
+	mov.s32 	%r56, 0;
+	ld.param.u64 	%rd30, [__cudaparm_solve_constraints_kernel_empty_constraint];
+	st.global.s32 	[%rd30+0], %r56;
+$Lt_1_93954:
+	add.s32 	%r44, %r44, 1;
+	add.u64 	%rd24, %rd13, %rd24;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	131	0
+	setp.ne.s32 	%p17, %r44, %r13;
+	@%p17 bra 	$Lt_1_93698;
+	bra.uni 	$Lt_1_122114;
+$Lt_1_118018:
+$L_1_79106:
+	.loc	16	134	0
+	@!%p5 bra 	$Lt_1_122114;
+	ld.shared.s8 	%r57, [%rd8+1];
+	mov.u32 	%r58, 67;
+	setp.ne.s32 	%p18, %r57, %r58;
+	@%p18 bra 	$Lt_1_119042;
+	mov.u32 	%r59, 95;
+	setp.ne.s32 	%p19, %r20, %r59;
+	@%p19 bra 	$Lt_1_119042;
+	ld.local.s8 	%r60, [__cuda___cuda_value_320+1];
+	mov.u32 	%r61, 99;
+	setp.ne.s32 	%p20, %r60, %r61;
+	@%p20 bra 	$Lt_1_119042;
+	.loc	16	136	0
+	mov.s16 	%rh14, 95;
+	st.local.s8 	[__cuda___cuda_n_const_408+0], %rh14;
+	.loc	16	137	0
+	mov.s16 	%rh15, 80;
+	st.local.s8 	[__cuda___cuda_n_const_408+1], %rh15;
+	.loc	16	138	0
+	ld.shared.u8 	%rh16, [%rd8+2];
+	st.local.u8 	[__cuda___cuda_n_const_408+2], %rh16;
+	ld.shared.u8 	%rh17, [%rd8+3];
+	st.local.u8 	[__cuda___cuda_n_const_408+3], %rh17;
+	ld.shared.u8 	%rh18, [%rd8+4];
+	st.local.u8 	[__cuda___cuda_n_const_408+4], %rh18;
+	ld.shared.u8 	%rh19, [%rd8+5];
+	st.local.u8 	[__cuda___cuda_n_const_408+5], %rh19;
+	ld.shared.u8 	%rh20, [%rd8+6];
+	st.local.u8 	[__cuda___cuda_n_const_408+6], %rh20;
+	ld.shared.u8 	%rh21, [%rd8+7];
+	st.local.u8 	[__cuda___cuda_n_const_408+7], %rh21;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	139	0
+	mov.s32 	%r62, %r13;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	mov.s32 	%r34, 0;
+	mov.s32 	%r63, %r62;
+$Lt_1_99330:
+ //<loop> Loop body line 139, nesting depth: 2, estimated iterations: unknown
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	139	0
+	mul.lo.s32 	%r36, %r34, %r2;
+	mul.lo.s32 	%r64, %r36, 8;
+	sub.s32 	%r65, %r64, 8;
+	cvt.s64.s32 	%rd31, %r65;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	add.u64 	%rd27, %rd31, %rd25;
+	ld.global.s8 	%r66, [%rd27+0];
+	mov.u32 	%r67, 0;
+	setp.ne.s32 	%p21, %r66, %r67;
+	@%p21 bra 	$Lt_1_99586;
+	.loc	16	64	0
+	mov.u64 	%rd32, __cuda___cuda_n_const_408;
+	mov.s64 	%rd33, %rd27;
+	mov.s32 	%r68, 8;
+$Lt_1_100610:
+ //<loop> Loop body line 64, nesting depth: 3, iterations: 8
+	ld.local.u8 	%rh22, [%rd32+0];
+	st.global.u8 	[%rd33+0], %rh22;
+	add.u64 	%rd32, %rd32, 1;
+	add.u64 	%rd33, %rd33, 1;
+	sub.s32 	%r68, %r68, 1;
+	mov.u32 	%r69, 0;
+	setp.ne.s32 	%p22, %r68, %r69;
+	@%p22 bra 	$Lt_1_100610;
+	bra.uni 	$LDWendi__Z12put_element2PciiiS_i_211_33;
+$Lt_1_99586:
+	.loc	16	59	0
+	add.s32 	%r34, %r34, 1;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	59	0
+	setp.ne.s32 	%p23, %r34, %r13;
+	@%p23 bra 	$Lt_1_99330;
+$LDWendi__Z12put_element2PciiiS_i_211_33:
+	.loc	16	140	0
+	mov.s32 	%r70, 0;
+	ld.param.u64 	%rd34, [__cudaparm_solve_constraints_kernel_empty_constraint];
+	st.global.s32 	[%rd34+0], %r70;
+	bra.uni 	$Lt_1_122114;
+$Lt_1_119042:
+$L_1_80642:
+	.loc	16	141	0
+	@!%p5 bra 	$Lt_1_122114;
+	ld.shared.s8 	%r71, [%rd8+1];
+	mov.u32 	%r72, 68;
+	setp.ne.s32 	%p24, %r71, %r72;
+	@%p24 bra 	$Lt_1_120066;
+	mov.u32 	%r73, 95;
+	setp.ne.s32 	%p25, %r20, %r73;
+	@%p25 bra 	$Lt_1_120066;
+	ld.local.s8 	%r74, [__cuda___cuda_value_320+1];
+	mov.u32 	%r75, 99;
+	setp.ne.s32 	%p26, %r74, %r75;
+	@%p26 bra 	$Lt_1_120066;
+	.loc	16	143	0
+	mov.s16 	%rh23, 95;
+	st.local.s8 	[__cuda___cuda_n_const_408+0], %rh23;
+	.loc	16	144	0
+	mov.s16 	%rh24, 80;
+	st.local.s8 	[__cuda___cuda_n_const_408+1], %rh24;
+	.loc	16	145	0
+	ld.shared.u8 	%rh25, [%rd8+2];
+	st.local.u8 	[__cuda___cuda_n_const_408+2], %rh25;
+	ld.shared.u8 	%rh26, [%rd8+3];
+	st.local.u8 	[__cuda___cuda_n_const_408+3], %rh26;
+	ld.shared.u8 	%rh27, [%rd8+4];
+	st.local.u8 	[__cuda___cuda_n_const_408+4], %rh27;
+	ld.shared.u8 	%rh28, [%rd8+5];
+	st.local.u8 	[__cuda___cuda_n_const_408+5], %rh28;
+	ld.shared.u8 	%rh29, [%rd8+6];
+	st.local.u8 	[__cuda___cuda_n_const_408+6], %rh29;
+	ld.shared.u8 	%rh30, [%rd8+7];
+	st.local.u8 	[__cuda___cuda_n_const_408+7], %rh30;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	146	0
+	mov.s32 	%r76, %r13;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	mov.s32 	%r34, 0;
+	mov.s32 	%r77, %r76;
+$Lt_1_103426:
+ //<loop> Loop body line 146, nesting depth: 2, estimated iterations: unknown
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	146	0
+	mul.lo.s32 	%r36, %r34, %r2;
+	mul.lo.s32 	%r78, %r36, 8;
+	sub.s32 	%r79, %r78, 8;
+	cvt.s64.s32 	%rd35, %r79;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	add.u64 	%rd27, %rd35, %rd25;
+	ld.global.s8 	%r80, [%rd27+0];
+	mov.u32 	%r81, 0;
+	setp.ne.s32 	%p27, %r80, %r81;
+	@%p27 bra 	$Lt_1_103682;
+	.loc	16	64	0
+	mov.u64 	%rd36, __cuda___cuda_n_const_408;
+	mov.s64 	%rd37, %rd27;
+	mov.s32 	%r82, 8;
+$Lt_1_104706:
+ //<loop> Loop body line 64, nesting depth: 3, iterations: 8
+	ld.local.u8 	%rh31, [%rd36+0];
+	st.global.u8 	[%rd37+0], %rh31;
+	add.u64 	%rd36, %rd36, 1;
+	add.u64 	%rd37, %rd37, 1;
+	sub.s32 	%r82, %r82, 1;
+	mov.u32 	%r83, 0;
+	setp.ne.s32 	%p28, %r82, %r83;
+	@%p28 bra 	$Lt_1_104706;
+	bra.uni 	$LDWendi__Z12put_element2PciiiS_i_211_25;
+$Lt_1_103682:
+	.loc	16	59	0
+	add.s32 	%r34, %r34, 1;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	59	0
+	setp.ne.s32 	%p29, %r34, %r13;
+	@%p29 bra 	$Lt_1_103426;
+$LDWendi__Z12put_element2PciiiS_i_211_25:
+	.loc	16	147	0
+	mov.s32 	%r84, 0;
+	ld.param.u64 	%rd38, [__cudaparm_solve_constraints_kernel_empty_constraint];
+	st.global.s32 	[%rd38+0], %r84;
+	bra.uni 	$Lt_1_122114;
+$Lt_1_120066:
+$L_1_81666:
+	.loc	16	148	0
+	@!%p5 bra 	$Lt_1_122114;
+	ld.shared.s8 	%r85, [%rd8+1];
+	mov.u32 	%r86, 65;
+	setp.ne.s32 	%p30, %r85, %r86;
+	@%p30 bra 	$Lt_1_121090;
+	mov.u32 	%r87, 95;
+	setp.ne.s32 	%p31, %r20, %r87;
+	@%p31 bra 	$Lt_1_121090;
+	ld.local.s8 	%r88, [__cuda___cuda_value_320+1];
+	mov.u32 	%r89, 108;
+	setp.ne.s32 	%p32, %r88, %r89;
+	@%p32 bra 	$Lt_1_121090;
+	.loc	16	151	0
+	mov.s16 	%rh32, 95;
+	st.local.s8 	[__cuda___cuda_n_const_408+0], %rh32;
+	.loc	16	152	0
+	mov.s16 	%rh33, 95;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+0], %rh33;
+	.loc	16	153	0
+	mov.s16 	%rh34, 80;
+	st.local.s8 	[__cuda___cuda_n_const_408+1], %rh34;
+	.loc	16	154	0
+	mov.s16 	%rh35, 80;
+	st.local.s8 	[__cuda___cuda_n_const2_4816+1], %rh35;
+	.loc	16	76	0
+	ld.shared.s8 	%rh36, [%rd8+2];
+	st.local.s8 	[__cuda___cuda_n_const_408+2], %rh36;
+	ld.shared.s8 	%rh37, [%rd8+3];
+	st.local.s8 	[__cuda___cuda_n_const_408+3], %rh37;
+	ld.local.s8 	%rh38, [__cuda___cuda_value_320+2];
+	st.local.s8 	[__cuda___cuda_n_const2_4816+2], %rh38;
+	ld.local.s8 	%rh39, [__cuda___cuda_value_320+3];
+	st.local.s8 	[__cuda___cuda_n_const2_4816+3], %rh39;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	157	0
+	mov.s32 	%r90, %r13;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	mov.s32 	%r34, 0;
+	mov.s32 	%r91, %r90;
+$Lt_1_108546:
+ //<loop> Loop body line 157, nesting depth: 2, estimated iterations: unknown
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	157	0
+	mul.lo.s32 	%r36, %r34, %r2;
+	mul.lo.s32 	%r92, %r36, 8;
+	sub.s32 	%r93, %r92, 8;
+	cvt.s64.s32 	%rd39, %r93;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	add.u64 	%rd27, %rd39, %rd25;
+	ld.global.s8 	%r94, [%rd27+0];
+	mov.u32 	%r95, 0;
+	setp.ne.s32 	%p33, %r94, %r95;
+	@%p33 bra 	$Lt_1_108802;
+	.loc	16	64	0
+	mov.u64 	%rd40, __cuda___cuda_n_const_408;
+	mov.s64 	%rd41, %rd27;
+	mov.s32 	%r96, 8;
+$Lt_1_109826:
+ //<loop> Loop body line 64, nesting depth: 3, iterations: 8
+	ld.local.u8 	%rh40, [%rd40+0];
+	st.global.u8 	[%rd41+0], %rh40;
+	add.u64 	%rd40, %rd40, 1;
+	add.u64 	%rd41, %rd41, 1;
+	sub.s32 	%r96, %r96, 1;
+	mov.u32 	%r97, 0;
+	setp.ne.s32 	%p34, %r96, %r97;
+	@%p34 bra 	$Lt_1_109826;
+	bra.uni 	$LDWendi__Z12put_element2PciiiS_i_211_11;
+$Lt_1_108802:
+	.loc	16	59	0
+	add.s32 	%r34, %r34, 1;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	59	0
+	setp.ne.s32 	%p35, %r34, %r13;
+	@%p35 bra 	$Lt_1_108546;
+$LDWendi__Z12put_element2PciiiS_i_211_11:
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	158	0
+	mov.s32 	%r98, %r13;
+	mov.s32 	%r34, 0;
+	mov.s32 	%r99, %r98;
+$Lt_1_111106:
+ //<loop> Loop body line 158, nesting depth: 2, estimated iterations: unknown
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	158	0
+	mul.lo.s32 	%r36, %r34, %r2;
+	mul.lo.s32 	%r100, %r36, 8;
+	sub.s32 	%r101, %r100, 8;
+	cvt.s64.s32 	%rd42, %r101;
+	.loc	16	157	0
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	.loc	16	158	0
+	add.u64 	%rd27, %rd42, %rd25;
+	ld.global.s8 	%r102, [%rd27+0];
+	mov.u32 	%r103, 0;
+	setp.ne.s32 	%p36, %r102, %r103;
+	@%p36 bra 	$Lt_1_111362;
+	.loc	16	64	0
+	mov.u64 	%rd43, __cuda___cuda_n_const2_4816;
+	mov.s64 	%rd44, %rd27;
+	mov.s32 	%r104, 8;
+$Lt_1_112386:
+ //<loop> Loop body line 64, nesting depth: 3, iterations: 8
+	ld.local.u8 	%rh41, [%rd43+0];
+	st.global.u8 	[%rd44+0], %rh41;
+	add.u64 	%rd43, %rd43, 1;
+	add.u64 	%rd44, %rd44, 1;
+	sub.s32 	%r104, %r104, 1;
+	mov.u32 	%r105, 0;
+	setp.ne.s32 	%p37, %r104, %r105;
+	@%p37 bra 	$Lt_1_112386;
+	bra.uni 	$LDWendi__Z12put_element2PciiiS_i_211_9;
+$Lt_1_111362:
+	.loc	16	59	0
+	add.s32 	%r34, %r34, 1;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	59	0
+	setp.ne.s32 	%p38, %r34, %r13;
+	@%p38 bra 	$Lt_1_111106;
+$LDWendi__Z12put_element2PciiiS_i_211_9:
+	.loc	16	76	0
+	ld.local.s8 	%rh42, [__cuda___cuda_n_const_408+0];
+	.loc	16	115	0
+	ld.param.u64 	%rd11, [__cudaparm_solve_constraints_kernel_out1];
+	.loc	16	76	0
+	st.global.s8 	[%rd11+0], %rh42;
+	ld.local.s8 	%rh43, [__cuda___cuda_n_const_408+1];
+	st.global.s8 	[%rd11+1], %rh43;
+	ld.local.s8 	%rh44, [__cuda___cuda_n_const_408+2];
+	st.global.s8 	[%rd11+2], %rh44;
+	ld.local.s8 	%rh45, [__cuda___cuda_n_const_408+3];
+	st.global.s8 	[%rd11+3], %rh45;
+	ld.local.s8 	%rh46, [__cuda___cuda_n_const_408+4];
+	st.global.s8 	[%rd11+4], %rh46;
+	ld.local.s8 	%rh47, [__cuda___cuda_n_const_408+5];
+	st.global.s8 	[%rd11+5], %rh47;
+	ld.local.s8 	%rh48, [__cuda___cuda_n_const_408+6];
+	st.global.s8 	[%rd11+6], %rh48;
+	ld.local.s8 	%rh49, [__cuda___cuda_n_const_408+7];
+	st.global.s8 	[%rd11+7], %rh49;
+	ld.param.u64 	%rd45, [__cudaparm_solve_constraints_kernel_out2];
+	ld.local.s8 	%rh50, [__cuda___cuda_n_const2_4816+0];
+	st.global.s8 	[%rd45+0], %rh50;
+	ld.local.s8 	%rh51, [__cuda___cuda_n_const2_4816+1];
+	st.global.s8 	[%rd45+1], %rh51;
+	ld.local.s8 	%rh52, [__cuda___cuda_n_const2_4816+2];
+	st.global.s8 	[%rd45+2], %rh52;
+	st.global.s8 	[%rd45+3], %rh39;
+	ld.local.s8 	%rh53, [__cuda___cuda_n_const2_4816+4];
+	st.global.s8 	[%rd45+4], %rh53;
+	ld.local.s8 	%rh54, [__cuda___cuda_n_const2_4816+5];
+	st.global.s8 	[%rd45+5], %rh54;
+	ld.local.s8 	%rh55, [__cuda___cuda_n_const2_4816+6];
+	st.global.s8 	[%rd45+6], %rh55;
+	ld.local.s8 	%rh56, [__cuda___cuda_n_const2_4816+7];
+	st.global.s8 	[%rd45+7], %rh56;
+	.loc	16	161	0
+	mov.s32 	%r106, 0;
+	ld.param.u64 	%rd46, [__cudaparm_solve_constraints_kernel_empty_constraint];
+	st.global.s32 	[%rd46+0], %r106;
+	bra.uni 	$Lt_1_122114;
+$Lt_1_121090:
+$L_1_82690:
+	.loc	16	162	0
+	@!%p5 bra 	$Lt_1_122114;
+	ld.shared.s8 	%r107, [%rd8+1];
+	mov.u32 	%r108, 65;
+	setp.ne.s32 	%p39, %r107, %r108;
+	@%p39 bra 	$Lt_1_122114;
+	mov.u32 	%r109, 95;
+	setp.ne.s32 	%p40, %r20, %r109;
+	@%p40 bra 	$Lt_1_122114;
+	ld.local.s8 	%r110, [__cuda___cuda_value_320+1];
+	mov.u32 	%r111, 116;
+	setp.ne.s32 	%p41, %r110, %r111;
+	@%p41 bra 	$Lt_1_122114;
+	.loc	16	164	0
+	mov.s16 	%rh57, 95;
+	st.local.s8 	[__cuda___cuda_n_const_408+0], %rh57;
+	.loc	16	165	0
+	mov.s16 	%rh58, 80;
+	st.local.s8 	[__cuda___cuda_n_const_408+1], %rh58;
+	.loc	16	166	0
+	ld.local.u8 	%rh59, [__cuda___cuda_value_320+2];
+	st.local.u8 	[__cuda___cuda_n_const_408+2], %rh59;
+	ld.local.u8 	%rh60, [__cuda___cuda_value_320+3];
+	st.local.u8 	[__cuda___cuda_n_const_408+3], %rh60;
+	ld.local.u8 	%rh61, [__cuda___cuda_value_320+4];
+	st.local.u8 	[__cuda___cuda_n_const_408+4], %rh61;
+	ld.local.u8 	%rh62, [__cuda___cuda_value_320+5];
+	st.local.u8 	[__cuda___cuda_n_const_408+5], %rh62;
+	ld.local.u8 	%rh63, [__cuda___cuda_value_320+6];
+	st.local.u8 	[__cuda___cuda_n_const_408+6], %rh63;
+	ld.local.u8 	%rh64, [__cuda___cuda_value_320+7];
+	st.local.u8 	[__cuda___cuda_n_const_408+7], %rh64;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	167	0
+	mov.s32 	%r112, %r13;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	mov.s32 	%r34, 0;
+	mov.s32 	%r113, %r112;
+$Lt_1_114690:
+ //<loop> Loop body line 167, nesting depth: 2, estimated iterations: unknown
+	.loc	16	113	0
+	ld.param.s32 	%r2, [__cudaparm_solve_constraints_kernel_num_var];
+	.loc	16	167	0
+	mul.lo.s32 	%r36, %r34, %r2;
+	mul.lo.s32 	%r114, %r36, 8;
+	sub.s32 	%r115, %r114, 8;
+	cvt.s64.s32 	%rd47, %r115;
+	ld.param.u64 	%rd25, [__cudaparm_solve_constraints_kernel_new_constraints];
+	add.u64 	%rd27, %rd47, %rd25;
+	ld.global.s8 	%r116, [%rd27+0];
+	mov.u32 	%r117, 0;
+	setp.ne.s32 	%p42, %r116, %r117;
+	@%p42 bra 	$Lt_1_114946;
+	.loc	16	64	0
+	mov.u64 	%rd48, __cuda___cuda_n_const_408;
+	mov.s64 	%rd49, %rd27;
+	mov.s32 	%r118, 8;
+$Lt_1_115970:
+ //<loop> Loop body line 64, nesting depth: 3, iterations: 8
+	ld.local.u8 	%rh65, [%rd48+0];
+	st.global.u8 	[%rd49+0], %rh65;
+	add.u64 	%rd48, %rd48, 1;
+	add.u64 	%rd49, %rd49, 1;
+	sub.s32 	%r118, %r118, 1;
+	mov.u32 	%r119, 0;
+	setp.ne.s32 	%p43, %r118, %r119;
+	@%p43 bra 	$Lt_1_115970;
+	bra.uni 	$LDWendi__Z12put_element2PciiiS_i_211_1;
+$Lt_1_114946:
+	.loc	16	59	0
+	add.s32 	%r34, %r34, 1;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	59	0
+	setp.ne.s32 	%p44, %r34, %r13;
+	@%p44 bra 	$Lt_1_114690;
+$LDWendi__Z12put_element2PciiiS_i_211_1:
+	.loc	16	168	0
+	mov.s32 	%r120, 0;
+	ld.param.u64 	%rd50, [__cudaparm_solve_constraints_kernel_empty_constraint];
+	st.global.s32 	[%rd50+0], %r120;
+$Lt_1_122114:
+$L_1_83970:
+$L_1_82434:
+$L_1_81410:
+$L_1_80386:
+$L_1_78850:
+$Lt_1_88066:
+	.loc	16	134	0
+	add.s32 	%r18, %r18, 1;
+	add.u64 	%rd16, %rd13, %rd16;
+	.loc	16	115	0
+	ld.param.s32 	%r13, [__cudaparm_solve_constraints_kernel_num_const];
+	.loc	16	134	0
+	setp.ne.s32 	%p45, %r13, %r18;
+	@%p45 bra 	$Lt_1_87810;
+$Lt_1_87298:
+	.loc	16	176	0
+	exit;
+$LDWend_solve_constraints_kernel:
+	} // solve_constraints_kernel
+

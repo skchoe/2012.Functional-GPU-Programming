@@ -1,0 +1,28 @@
+commons.rkt: (proc-doc/names decimal->list-of-coeff-base
+commons.rkt:(define (decimal->list-of-coeff-base input base)
+commons.rkt:(define (decimal->container-size/byte input #:powerof2 [po2 #f])
+commons.rkt:    [(define (decimal->bit-string input)
+commons.rkt:       (decimal->list-of-coeff-base input 2))
+commons.rkt:     (define (decimal->num-bits input)
+commons.rkt:       (length (decimal->bit-string input)))
+commons.rkt:       (let* ([lst-binary (decimal->list-of-coeff-base input 2)])
+commons.rkt:    (let* ([bits (decimal->num-bits input)]
+commons.rkt~: (proc-doc/names decimal->list-of-coeff-base
+commons.rkt~:(define (decimal->list-of-coeff-base input base)
+commons.rkt~:(define (decimal->container-size/byte input #:powerof2 [po2 #f])
+commons.rkt~:    [(define (decimal->bit-string input)
+commons.rkt~:       (decimal->list-of-coeff-base input 2))
+commons.rkt~:     (define (decimal->num-bits input)
+commons.rkt~:       (length (decimal->bit-string input)))
+commons.rkt~:       (let* ([lst-binary (decimal->list-of-coeff-base input 2)])
+commons.rkt~:    (let* ([bits (decimal->num-bits input)]
+encoding-constraints.rkt:                [lst-lst-coeff (map decimal->list-of-coeff-base 
+encoding-constraints.rkt~:                [lst-lst-coeff (map decimal->list-of-coeff-base 
+SBA-gen-constraints.rkt:           [var-max-byte (decimal->container-size/byte (sub1 num-var) #:powerof2 var-size-cond)])
+SBA-gen-constraints.rkt:         [(var-max-byte) (decimal->container-size/byte (sub1 num-var) #:powerof2 #t)]
+SBA-gen-constraints.rkt~:           [var-max-byte (decimal->container-size/byte (sub1 num-var) #:powerof2 var-size-cond)])
+SBA-gen-constraints.rkt~:         [(var-max-byte) (decimal->container-size/byte (sub1 num-var) #:powerof2 #t)]
+scribble-test.rkt: (proc-doc/names decimal->list-of-coeff-base
+scribble-test.rkt:(define (decimal->list-of-coeff-base input base)
+scribble-test.rkt: (proc-doc/names decimal->container-size/byte
+scribble-test.rkt:(define (decimal->container-size/byte input #:powerof2 [po2 #f])

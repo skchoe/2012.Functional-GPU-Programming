@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <cuda.h>
+
+__device__ volatile int lock = -1;
+__device__ volatile int counter = 0;;
+
+__global__ void spinlol()
+{
+  __shared__ int intraCTAlock;
+  if (!threadIdx.x && !threadIdx.y)
+        intraCTAlock = -1;
+  __syncthreads();
+
+  if (!threadIdx.x && !threadIdx.y)
+        while (atomicCAS((int*)&lock, -1, blockIdx.x) != -1);
+  __syncthreads();
+
+  if (threadIdx.x % 32 == 0)
+        {
+          while (atomicCAS(&intraCTAlock, -1, 12) != -1);
+          counter++;
+          __threadfence();
+          atomicExch(&intraCTAlock, -1);
+        }
+  __syncthreads();
+  if (!threadIdx.x && !threadIdx.y)
+        atomicExch((int*)&lock, -1);
+}
+
+int main(int argc, char** argv)
+{
+  int hostcounter = -1;
+  spinlol<<<60, 512>>>();
+  cudaThreadSynchronize();
+  printf("err = %s\n", cudaGetErrorString(cudaGetLastError()));
+  cudaMemcpyFromSymbol(&hostcounter, "counter", sizeof(int), 0, cudaMemcpyDeviceToHost);
+  printf("counter = %d\n", hostcounter);
+}

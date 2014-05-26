@@ -1,0 +1,29 @@
+
+Matrix size: 600x600, tile: 15x15, block: 15x15
+
+Kernel			Loop over kernel	Loop within kernel	Loop over kernel Time		Loop within kernel Time
+------			----------------	------------------	---------------------		-----------------------
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+simple copy           	 4.22 GB/s		 4.61 GB/s		0.63565 ms			0.58182 ms
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+shared memory copy    	 4.41 GB/s		 4.56 GB/s		0.60772 ms			0.58857 ms
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+coalesced transpose   	 4.34 GB/s		 4.49 GB/s		0.61841 ms			0.59765 ms
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+naive transpose       	 3.85 GB/s		 3.89 GB/s		0.69740 ms			0.69003 ms
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+no bank conflict trans	 4.38 GB/s		 4.51 GB/s		0.61294 ms			0.59436 ms
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+coarse-grained        	 4.20 GB/s		 4.49 GB/s		0.63937 ms			0.59766 ms
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+fine-grained          	 4.27 GB/s		 4.57 GB/s		0.62765 ms			0.58701 ms
+***Loop over kernel test PASSED***
+***Loop over kernel test PASSED***
+diagonal transpose    	 4.25 GB/s		 4.42 GB/s		0.63093 ms			0.60743 ms

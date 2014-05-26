@@ -1,0 +1,262 @@
+MODULE-Path in scuda.ss : ../../sdk-ex/cpyTestDrv_Gen/data/test_kernel.sm_10.cubin
+**********device information)**************
+* # of device = 1
+* Name: #"GeForce 310M\0\0\0\0\0\0\0\0"
+* min/max compute capability = (1, 2)
+* Total memory(byte) = 536084480
+* Property - Max Thread per block(#): 512
+* MAX thd 0: 512
+* MAX thd 1: 512
+* MAX thd 2: 64
+* Property - Max Grid Dim(#) : (65535, 65535)
+* Property - Shared Memory per block(MB): 1
+* Property - Total Constant memory(MB): 16384
+* Property - SIMDWidth(MB): 65536
+* Property - memPitch(MB): 32
+* Property - regsPerBlock(MB): 2147483647
+* Property - clockRate(Hz): 16384
+* Property - textureAlign(MB): 1530000
+****************************************
+-------------------loading module, kernel---------------
+input module_path-string: ../../sdk-ex/cpyTestDrv_Gen/data/test_kernel.sm_10.cubin
+cuDevice = 0
+cuCtxCreate: CUDA_SUCCESS w/ Module = ../../sdk-ex/cpyTestDrv_Gen/data/test_kernel.sm_10.cubin, is-string?:#t
+Module loading from cubin:../../sdk-ex/cpyTestDrv_Gen/data/test_kernel.sm_10.cubin--->>CUDA_SUCCESS
+Fetching kernel function : test_kernel(CUDA_SUCCESS)
+Function(test_kernel) loading:CUDA_SUCCESS
+CtxCreation: CUDA_SUCCESS
+ModuleLoad: CUDA_SUCCESS
+************cuParamSetv vec:#<cpointer>   w/size=20 bytes
+(0)=0.0010000000474974513	(1)=0.0020000000949949026	(2)=0.003000000026077032	(3)=0.004000000189989805	(4)=0.004999999888241291	
+_______________________________________________________________________________
+TOP expanded:
+(module sum_kernel typed/racket (#%module-begin (define-values () (begin (quote-syntax (:-internal test_kernel ((Vectorof Float) Integer -> (values (Vectorof Float) Integer)))) (#%plain-app values))) (define-values (test_kernel) (lambda (array_in sgl_in) (#%app values array_in (quote 100)))) (define-values-for-syntax () (begin (#%app register-type (quote-syntax test_kernel) (#%app make-Function (#%app list (#%app make-arr (#%app list (#%app make-Vector (#%app make-Union (let-values (((procedure) sort) ((temp1) (#%app list -FlonumPosZero -FlonumNegZero -FlonumNan -PosFlonum -NegFlonum)) ((<2) <) ((Type-seq3) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq3) temp1 <2)))) (#%app make-Union (let-values (((procedure) sort) ((temp4) (#%app list (#%app make-Value (quote 0)) (#%app make-Value (quote 1)) -Byte>1 -PosIndexNotByte -PosFixnumNotIndex -NegFixnum -PosIntNotFixnum -NegIntNotFixnum)) ((<5) <) ((Type-seq6) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq6) temp4 <5)))) (#%app make-Values (#%app list (#%app make-Result (#%app make-Vector (#%app make-Union (let-values (((procedure) sort) ((temp7) (#%app list -FlonumPosZero -FlonumNegZero -FlonumNan -PosFlonum -NegFlonum)) ((<8) <) ((Type-seq9) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq9) temp7 <8)))) (#%app make-FilterSet (#%app make-Top) (#%app make-Top)) (#%app make-Empty)) (#%app make-Result (#%app make-Union (let-values (((procedure) sort) ((temp10) (#%app list (#%app make-Value (quote 0)) (#%app make-Value (quote 1)) -Byte>1 -PosIndexNotByte -PosFixnumNotIndex -NegFixnum -PosIntNotFixnum -NegIntNotFixnum)) ((<11) <) ((Type-seq12) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq12) temp10 <11))) (#%app make-FilterSet (#%app make-Top) (#%app make-Top)) (#%app make-Empty)))) (quote #f) (quote #f) (quote ()))))) (#%app values))) (#%app void)))
+_____________________________________________________________________
+input - forms:
+(define-values () (begin (quote-syntax (:-internal test_kernel ((Vectorof Float) Integer -> (values (Vectorof Float) Integer)))) (#%plain-app values)))
+input - forms:
+(define-values (test_kernel) (lambda (array_in sgl_in) (#%app values array_in (quote 100))))
+input - forms:
+(define-values-for-syntax () (begin (#%app register-type (quote-syntax test_kernel) (#%app make-Function (#%app list (#%app make-arr (#%app list (#%app make-Vector (#%app make-Union (let-values (((procedure) sort) ((temp1) (#%app list -FlonumPosZero -FlonumNegZero -FlonumNan -PosFlonum -NegFlonum)) ((<2) <) ((Type-seq3) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq3) temp1 <2)))) (#%app make-Union (let-values (((procedure) sort) ((temp4) (#%app list (#%app make-Value (quote 0)) (#%app make-Value (quote 1)) -Byte>1 -PosIndexNotByte -PosFixnumNotIndex -NegFixnum -PosIntNotFixnum -NegIntNotFixnum)) ((<5) <) ((Type-seq6) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq6) temp4 <5)))) (#%app make-Values (#%app list (#%app make-Result (#%app make-Vector (#%app make-Union (let-values (((procedure) sort) ((temp7) (#%app list -FlonumPosZero -FlonumNegZero -FlonumNan -PosFlonum -NegFlonum)) ((<8) <) ((Type-seq9) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq9) temp7 <8)))) (#%app make-FilterSet (#%app make-Top) (#%app make-Top)) (#%app make-Empty)) (#%app make-Result (#%app make-Union (let-values (((procedure) sort) ((temp10) (#%app list (#%app make-Value (quote 0)) (#%app make-Value (quote 1)) -Byte>1 -PosIndexNotByte -PosFixnumNotIndex -NegFixnum -PosIntNotFixnum -NegIntNotFixnum)) ((<11) <) ((Type-seq12) Type-seq)) (#%app (#%app checked-procedure-check-and-extract struct:keyword-procedure procedure keyword-procedure-extract (quote (#:key)) (quote 4)) (quote (#:key)) (#%app list Type-seq12) temp10 <11))) (#%app make-FilterSet (#%app make-Top) (#%app make-Top)) (#%app make-Empty)))) (quote #f) (quote #f) (quote ()))))) (#%app values)))
+input - forms:
+(#%app void)
+nm:test_kernel, ty:((Vectorof Float) Integer -> (values (Vectorof Float) Integer))
+inputs, l-in:((#<cpointer> 5) 256), l-out:((#<cpointer> 5) #<cpointer>)
+l-doms-rngs: doms-dim:(5 0), rngs-dim:(5 0)
+nm_ty_stx->nm_ctype's nts elt - name:#t, type:((Vectorof Float) Integer -> (values (Vectorof Float) Integer))
+(Vectorof Float) is syntax?:#t
+Integer is syntax?:#t
+-> is syntax?:#t
+(values (Vectorof Float) Integer) is syntax?:#t
+list of types:((Vectorof Float) Integer -> (values (Vectorof Float) Integer))
+... tys:((Vectorof Float) Integer), arrow:-> rng:(values (Vectorof Float) Integer)
+function type------------------------------------
+ctype-creator - lst-ty-stx:((#<syntax::58 (Vectorof Float)> #<syntax::75 Integer>) (#<syntax::141 (Vectorof Float)> #<syntax::158 Integer>)), pair-dom-rng-dim:((5 0) (5 0))
+------ctype-fyorm:(#<syntax::59 Vectorof> #<syntax::68 Float>)
+vector type:(Vectorof Float), l:Vectorof, x:#<syntax::68 Float>
+------ctype-fyorm:Float
+non-vector type:Float
+base-name->ctype input name:#<syntax::68 Float>
+------ctype-fyorm:Integer
+non-vector type:Integer
+base-name->ctype input name:#<syntax::75 Integer>
+------ctype-fyorm:(#<syntax::142 Vectorof> #<syntax::151 Float>)
+vector type:(Vectorof Float), l:Vectorof, x:#<syntax::151 Float>
+------ctype-fyorm:Float
+non-vector type:Float
+base-name->ctype input name:#<syntax::151 Float>
+------ctype-fyorm:Integer
+non-vector type:Integer
+base-name->ctype input name:#<syntax::158 Integer>
+Lt-dom:(#<syntax::58 (Vectorof Float)> #<syntax::75 Integer>), Lt-rng:(#<syntax::141 (Vectorof Float)> #<syntax::158 Integer>)
+Lct-dom:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>), Lct-rng:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>)
+LD-dom:(5 0), LD-rng:(5 0)
+lst-ty:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>), lst-dim:(5 0), dom?:#t
+col-dim input:5 with ty:(#<ctype:pointer> #<ctype:uint32>)  and dom?:#t	-------> coldim output:#<ctype:uint32>
+col-dim input:0 with ty:#<ctype:uint32>  and dom?:#t	-------> coldim output:#<ctype:uint32>
+lst-colll-ty:(#<ctype:uint32> #<ctype:uint32>), ol:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>), oct:(#<ctype:uint32> #<ctype:uint32>)
+___elt:(#<ctype:pointer> #<ctype:uint32>)
+lst-colll-ty:(#<ctype:uint32> #<ctype:uint32>), ol:(#<ctype:uint32>), oct:(#<ctype:uint32>)
+___elt:#<ctype:uint32>
+lst-colll-ty:(#<ctype:uint32> #<ctype:uint32>), ol:(), oct:()
+expand-list w collec-ty:(#<ctype:uint32> #<ctype:uint32>)
+from: ((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>)
+to ((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32> #<ctype:uint32>)
+expand-type-dim: dim-in:(5 0), expanded-dim:(5 0 0)
+lst-ty:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>), lst-dim:(5 0), dom?:#f
+col-dim input:5 with ty:(#<ctype:pointer> #<ctype:uint32>)  and dom?:#f	-------> coldim output:(#<ctype:pointer> #<ctype:uint32>)
+col-dim input:0 with ty:#<ctype:uint32>  and dom?:#f	-------> coldim output:(#<ctype:pointer> #<ctype:uint32>)
+lst-colll-ty:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>)), ol:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>), oct:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>))
+___elt:(#<ctype:pointer> #<ctype:uint32>)
+lst-colll-ty:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>)), ol:(#<ctype:uint32>), oct:((#<ctype:pointer> #<ctype:uint32>))
+___elt:#<ctype:uint32>
+lst-colll-ty:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>)), ol:(), oct:()
+expand-list w collec-ty:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>))
+from: ((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32>)
+to ((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>))
+expand-type-dim: dim-in:(5 0), expanded-dim:(5 0 0)
+ctype-creator-Function dom:((Vectorof Float) Integer), rng:((Vectorof Float) Integer)
+-> result dom:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32> #<ctype:uint32>), rng:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>))
+ result dim d:(5 0 0), r:(5 0 0)
+syntax?(#t), elt:((Vectorof Float) Integer -> (values (Vectorof Float) Integer)) 
+l-dom-ty------:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32> #<ctype:uint32>), l-fin :(#<cpointer> 5 256)(0.0010000000474974513), lddim:(5 0 0)
+l-rng-ty------:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>)), l-fout:(#<cpointer> 5 #<cpointer>), lrdim:(5 0 0)
+
+l-cty:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32> #<ctype:uint32> (#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>))
+l-loc:(#<cpointer> 5 256 #<cpointer> 5 #<cpointer>)
+l-count:(5 0 0 5 0 0)
+l-init:(#t #t #t #f #f #f)
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 5 #t
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0010000000474974513), idx:1, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0020000000949949026 0.0010000000474974513), idx:2, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:3, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:4, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004999999888241291 0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:5, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>((0.0010000000474974513 0.0020000000949949026 0.003000000026077032 0.004000000189989805 0.004999999888241291)), length of v0: 5, 	cnt:5, 	init?:#t
+print-cuparam:#<ctype:uint32> 5 0 #t
+CU-PARAM: 	ty:#<ctype:uint32>(#<ctype:uint32>, #f), 	loc:5(5), length of v0: -1, 	cnt:0, 	init?:#t
+print-cuparam:#<ctype:uint32> 256 0 #t
+CU-PARAM: 	ty:#<ctype:uint32>(#<ctype:uint32>, #f), 	loc:256(256), length of v0: -1, 	cnt:0, 	init?:#t
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 5 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0), idx:1, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0), idx:2, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0), idx:3, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0 0.0), idx:4, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0 0.0 0.0), idx:5, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>((0.0 0.0 0.0 0.0 0.0)), length of v0: 5, 	cnt:5, 	init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) 5 0 #f
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:5(5), length of v0: -1, 	cnt:0, 	init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 0 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>(()), length of v0: 0, 	cnt:0, 	init?:#f
+__________qid-ctype________
+Ftn-name: test_kernel
+Elt type: Function
+Ftn-dom:((#<ctype:pointer> #<ctype:uint32>) #<ctype:uint32> #<ctype:uint32>)
+Ftn-rng:((#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>) (#<ctype:pointer> #<ctype:uint32>))
+l-dom-dim:(5 0 0)
+l-rng-dim:(5 0 0)
+l-in:((#<cpointer> 5) 256)
+l-out-ptr:((#<cpointer> 5) #<cpointer>)
+qid-ctype matching:test_kernel and  ((5 0 0) (5 0 0))
+kernel-launcher begins w/ l-cu-param:(#<cu-param> #<cu-param> #<cu-param> #<cu-param> #<cu-param> #<cu-param>)
+cu-param ty:(#<ctype:pointer> #<ctype:uint32>), loc:#<cpointer>, cnt:5->5, init?:#t
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 5 #t
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0010000000474974513), idx:1, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0020000000949949026 0.0010000000474974513), idx:2, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:3, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:4, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004999999888241291 0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:5, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>((0.0010000000474974513 0.0020000000949949026 0.003000000026077032 0.004000000189989805 0.004999999888241291)), length of v0: 5, 	cnt:5, 	init?:#t
+___________________________
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 5 #t
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0010000000474974513), idx:1, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0020000000949949026 0.0010000000474974513), idx:2, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:3, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:4, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004999999888241291 0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:5, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>((0.0010000000474974513 0.0020000000949949026 0.003000000026077032 0.004000000189989805 0.004999999888241291)), length of v0: 5, 	cnt:5, 	init?:#t
+Result of cuMemAlloc:CUDA_SUCCESS w/ size:4 x 5, parray:1114112
+Result of cpyHtoD:CUDA_SUCCESS
+Result of ParamSetv:CUDA_SUCCESS
+**************cuParamSetv: offset(in/used):0/0, location in gpu:1114112=1114112
+End (IN) offset(od/nw):0/8, cu-result:CUDA_SUCCESS
+
+cu-param ty:#<ctype:uint32>, loc:5, cnt:0->1, init?:#t
+ctypename is not pair, input scalar loc = value or pointer, ctn base type or struct:#<ctype:uint32>
+align of #<ctype:uint32> : 4, layout:uint32
+ty-simple type in integer group:#<ctype:uint32>
+************cuParamSet(i,f):ParamSetResult:CUDA_SUCCESS, single_in offset_t(in/used):8/8, value:5
+End (IN) offset(od/nw):8/12, cu-result:CUDA_SUCCESS
+
+cu-param ty:#<ctype:uint32>, loc:256, cnt:0->1, init?:#t
+ctypename is not pair, input scalar loc = value or pointer, ctn base type or struct:#<ctype:uint32>
+align of #<ctype:uint32> : 4, layout:uint32
+ty-simple type in integer group:#<ctype:uint32>
+************cuParamSet(i,f):ParamSetResult:CUDA_SUCCESS, single_in offset_t(in/used):12/12, value:256
+End (IN) offset(od/nw):12/16, cu-result:CUDA_SUCCESS
+
+cu-param ty:(#<ctype:pointer> #<ctype:uint32>), loc:#<cpointer>, cnt:5->5, init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 5 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0), idx:1, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0), idx:2, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0), idx:3, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0 0.0), idx:4, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0 0.0 0.0), idx:5, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>((0.0 0.0 0.0 0.0 0.0)), length of v0: 5, 	cnt:5, 	init?:#f
+___________________________
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 5 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0), idx:1, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0), idx:2, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0), idx:3, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0 0.0), idx:4, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0 0.0 0.0 0.0 0.0), idx:5, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>((0.0 0.0 0.0 0.0 0.0)), length of v0: 5, 	cnt:5, 	init?:#f
+Result of cuMemAlloc:CUDA_SUCCESS w/ size:4 x 5, parray:1114368
+Result of cpyHtoD:NO_COMP
+Result of ParamSetv:CUDA_SUCCESS
+**************cuParamSetv: offset(in/used):16/16, location in gpu:1114368=1114368
+End (OUT) offset(od/nw):16/24, cu-result:CUDA_SUCCESS
+
+cu-param ty:(#<ctype:pointer> #<ctype:uint32>), loc:5, cnt:0->1, init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) 5 0 #f
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:5(5), length of v0: -1, 	cnt:0, 	init?:#f
+___________________________
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) 5 0 #f
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:5(5), length of v0: -1, 	cnt:0, 	init?:#f
+Result of cuMemAlloc:CUDA_SUCCESS w/ size:4 x 1, parray:1114624
+Result of cpyHtoD:NO_COMP
+Result of ParamSetv:CUDA_SUCCESS
+**************cuParamSetv: offset(in/used):24/24, location in gpu:1114624=1114624
+End (OUT) offset(od/nw):24/32, cu-result:CUDA_SUCCESS
+
+cu-param ty:(#<ctype:pointer> #<ctype:uint32>), loc:#<cpointer>, cnt:0->1, init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 0 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>(()), length of v0: 0, 	cnt:0, 	init?:#f
+___________________________
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 0 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>(()), length of v0: 0, 	cnt:0, 	init?:#f
+Result of cuMemAlloc:CUDA_SUCCESS w/ size:4 x 1, parray:1114880
+Result of cpyHtoD:NO_COMP
+Result of ParamSetv:CUDA_SUCCESS
+**************cuParamSetv: offset(in/used):32/32, location in gpu:1114880=1114880
+End (OUT) offset(od/nw):32/40, cu-result:CUDA_SUCCESS
+
+CU_PRM after cuParamSet:
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) 1114368 5 #f
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:1114368(1114368), length of v0: -1, 	cnt:5, 	init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) 1114624 0 #f
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:1114624(1114624), length of v0: -1, 	cnt:0, 	init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) 1114880 0 #f
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:1114880(1114880), length of v0: -1, 	cnt:0, 	init?:#f
+Result of Launch:CUDA_SUCCESS
+Result of Block shp:CUDA_SUCCESS-b
+Result SetParamSize:CUDA_SUCCESS
+B4-Calloc, offset_in:40, l-out-gcp:(#<cu-param> #<cu-param> #<cu-param>)
+REesult of ptr:1114368, ty:(#<ctype:pointer> #<ctype:uint32>), memsize:4x5, val:0.0010000000474974513, memcpy:CUDA_SUCCESS, degalloc:CUDA_SUCCESS
+REesult of ptr:1114624, ty:(#<ctype:pointer> #<ctype:uint32>), memsize:4x1, val:7.006492321624085e-45, memcpy:CUDA_SUCCESS, degalloc:CUDA_SUCCESS
+REesult of ptr:1114880, ty:(#<ctype:pointer> #<ctype:uint32>), memsize:4x1, val:3.587324068671532e-43, memcpy:CUDA_SUCCESS, degalloc:CUDA_SUCCESS
+RESULT:(#<cu-param> #<cu-param> #<cu-param>)
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 5 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0010000000474974513), idx:1, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.0020000000949949026 0.0010000000474974513), idx:2, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:3, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:4, ty:#<ctype:uint32>
+cptr->list ---- lst:(0.004999999888241291 0.004000000189989805 0.003000000026077032 0.0020000000949949026 0.0010000000474974513), idx:5, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>((0.0010000000474974513 0.0020000000949949026 0.003000000026077032 0.004000000189989805 0.004999999888241291)), length of v0: 5, 	cnt:5, 	init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 0 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>(()), length of v0: 0, 	cnt:0, 	init?:#f
+print-cuparam:(#<ctype:pointer> #<ctype:uint32>) #<cpointer> 0 #f
+cptr->list ---- lst:(), idx:0, ty:#<ctype:uint32>
+CU-PARAM: 	ty:(#<ctype:pointer> #<ctype:uint32>)(#<ctype:pointer>, #<ctype:uint32>), 	loc:#<cpointer>(()), length of v0: 0, 	cnt:0, 	init?:#f
+result of CtxDetach:CUDA_SUCCESS

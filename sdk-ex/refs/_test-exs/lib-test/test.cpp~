@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+extern "C"
+int foo (int);
+extern "C"
+void add1f(float*);
+
+extern "C"
+int foo (int i)
+{
+   i=100;
+   return 1;
+}
+
+extern "C"
+void add1f(float* io)
+{
+   (*io) ++;
+}
+
+extern "C"
+int main(int argc, char** argv)
+{
+	printf("output = %d\n", foo(1));
+
+	float f = 200.0f;
+	add1f(&f);
+	printf("output = %f\n", f);
+
+	return 0;
+}

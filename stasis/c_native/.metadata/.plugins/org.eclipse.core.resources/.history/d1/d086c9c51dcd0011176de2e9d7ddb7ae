@@ -1,0 +1,21 @@
+/*
+ * gstm_include.h
+ *
+ *  Created on: Jul 13, 2012
+ *      Author: skchoe
+ */
+
+#ifndef GSTM_INCLUDE_H_
+#define GSTM_INCLUDE_H_
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <strings.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
+#include <malloc.h>
+
+
+#endif /* GSTM_INCLUDE_H_ */

@@ -1,0 +1,14 @@
+Set-Based Analaysis Program Using CUDA
+--------------------------------------
+
+hashtab.c,h -- hash table representation
+driver.c -- main function
+cu_lib.cu -- kernel functions and solve contraints function
+def.h -- TOTAL_CONSTRAINTS(BLOCK_SIZE_X*BLOCK_Y),  BLOCK_SIZE_X(NUM_OF_VARIABLE), BLOCK_Y(NUM_OF_CONSTRAINTS_PER_VAR)
+lock.h -- Locking for hash table
+
+How to run 
+-----------
+cmake CMakeList
+make
+./sba

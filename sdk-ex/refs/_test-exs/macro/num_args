@@ -1,0 +1,16 @@
+#lang scheme
+
+(define-syntax foo
+  (lambda (stx)
+    (syntax-case stx ()
+      [(foo a) (values 100)]      
+      [(foo a b) (values 100 200)]
+      [(foo a b c) (values 100 200 300)])))
+
+(let-values ([(x y) (quotient/remainder 10 3)])
+      (list y x))
+
+(let-values ([(a) (foo (syntax 2))])
+  #f)
+
+    

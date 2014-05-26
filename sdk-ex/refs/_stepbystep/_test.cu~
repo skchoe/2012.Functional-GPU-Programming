@@ -1,0 +1,151 @@
+#include <GL/glew.h>
+#include <GL/glut.h>
+
+#include <cuda.h>
+#include <cutil.h>
+#include <cudaGL.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void display()
+{
+   glClearColor( 0.0, 0.0, 0.0, 1.0);
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+         glutSwapBuffers();
+	 }
+
+	 //----------------------------------------------------------------------
+	 void idle()
+	 {
+	    glutPostRedisplay();
+	    }
+
+	    //----------------------------------------------------------------------
+	    void keyboard(unsigned char key, int x, int y)
+	    {
+	       switch( key) {
+	          case(27) :
+		     case('q') :
+		            exit(0);
+			           break;
+				      }
+				      }
+				      //----------------------------------------------------------------------
+				      int main(int argc, char** argv)
+				      {
+				         glutInit(&argc, argv);
+					    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
+					       glutInitWindowSize(512, 512);
+					          glutCreateWindow("BasicGL");
+
+						     glutDisplayFunc(display);
+						        glutKeyboardFunc(keyboard);
+							   glutIdleFunc(idle);
+
+							      glewInit();
+
+							         CU_SAFE_CALL(cuGLInit());
+								    CUT_CHECK_ERROR_GL();
+
+								       //glutPostRedisplay();
+
+								          int sz = 20000;
+									     float* ptr = new float[sz];
+									        unsigned int size = sz*sizeof(float);
+
+										   unsigned int vbo;
+										      glGenBuffers(1, &vbo);
+										         glBindBuffer(GL_ARRAY_BUFFER, vbo);
+											    glBufferData(GL_ARRAY_BUFFER,  size, (const void*) ptr, GL_DYNAMIC_DRAW);
+											       glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+											          CUdeviceptr devPtr;
+												     unsigned int ssize;
+
+												        CU_SAFE_CALL(cuGLRegisterBufferObject(vbo));
+													   //CU_SAFE_CALL(cuGLMapBufferObject(&devPtr, &ssize, vbo));
+
+													      // <<<<   PAY ATTENTION ....
+													         CU_SAFE_CALL(cuGLMapBufferObject(&devPtr, &ssize, vbo));
+														    printf("- size= %d, ssize= %d, devPtr= %d\n", size, ssize, devPtr);
+
+														       CU_SAFE_CALL(cuGLMapBufferObject(&ssize, &devPtr, vbo));
+														          printf("- size= %d, ssize= %d, devPtr= %d\n", size, ssize, devPtr);
+
+															     glutMainLoop();#include <GL/glew.h>
+															     #include <GL/glut.h>
+
+															     #include <cuda.h>
+															     #include <cutil.h>
+															     #include <cudaGL.h>
+															     #include <stdio.h>
+															     #include <stdlib.h>
+
+
+															     void display()
+															     {
+															        glClearColor( 0.0, 0.0, 0.0, 1.0);
+																   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+																      glutSwapBuffers();
+																      }
+
+																      //----------------------------------------------------------------------
+																      void idle()
+																      {
+																         glutPostRedisplay();
+																	 }
+
+																	 //----------------------------------------------------------------------
+																	 void keyboard(unsigned char key, int x, int y)
+																	 {
+																	    switch( key) {
+																	       case(27) :
+																	          case('q') :
+																		         exit(0);
+																			        break;
+																				   }
+																				   }
+																				   //----------------------------------------------------------------------
+																				   int main(int argc, char** argv)
+																				   {
+																				      glutInit(&argc, argv);
+																				         glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
+																					    glutInitWindowSize(512, 512);
+																					       glutCreateWindow("BasicGL");
+
+																					          glutDisplayFunc(display);
+																						     glutKeyboardFunc(keyboard);
+																						        glutIdleFunc(idle);
+
+																							   glewInit();
+
+																							      CU_SAFE_CALL(cuGLInit());
+																							         CUT_CHECK_ERROR_GL();
+
+																								    //glutPostRedisplay();
+
+																								       int sz = 20000;
+																								          float* ptr = new float[sz];
+																									     unsigned int size = sz*sizeof(float);
+
+																									        unsigned int vbo;
+																										   glGenBuffers(1, &vbo);
+																										      glBindBuffer(GL_ARRAY_BUFFER, vbo);
+																										         glBufferData(GL_ARRAY_BUFFER,  size, (const void*) ptr, GL_DYNAMIC_DRAW);
+																											    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+																											       CUdeviceptr devPtr;
+																											          unsigned int ssize;
+
+																												     CU_SAFE_CALL(cuGLRegisterBufferObject(vbo));
+																												        //CU_SAFE_CALL(cuGLMapBufferObject(&devPtr, &ssize, vbo));
+
+																													   // <<<<   PAY ATTENTION ....
+																													      CU_SAFE_CALL(cuGLMapBufferObject(&devPtr, &ssize, vbo));
+																													         printf("- size= %d, ssize= %d, devPtr= %d\n", size, ssize, devPtr);
+
+																														    CU_SAFE_CALL(cuGLMapBufferObject(&ssize, &devPtr, vbo));
+																														       printf("- size= %d, ssize= %d, devPtr= %d\n", size, ssize, devPtr);
+
+																														          glutMainLoop();

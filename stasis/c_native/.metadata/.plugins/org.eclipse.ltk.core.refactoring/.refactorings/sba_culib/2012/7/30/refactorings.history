@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;sba_culib/src/gstm_common.cpp&apos; to &apos;gstm_common.c&apos;" description="Rename resource &apos;gstm_common.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/gstm_common.cpp" name="gstm_common.c" stamp="1343320862446" updateReferences="true"/>
+</session>

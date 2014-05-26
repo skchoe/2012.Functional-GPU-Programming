@@ -1,0 +1,45 @@
+
+**** Build of configuration Debug for project sba_capp ****
+
+make all 
+Building file: ../src/stm_main.c
+Invoking: GCC C Compiler
+gcc -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/stm_main.d" -MT"src/stm_main.d" -o "src/stm_main.o" "../src/stm_main.c"
+In file included from ../src/stm_main.c:1:0:
+/home/skchoe/project-gpu/inc/stm_common.h:5:8: error: expected identifier or ‘(’ before string constant
+../src/stm_main.c:10:23: error: unknown type name ‘byte’
+../src/stm_main.c:10:34: error: unknown type name ‘byte’
+../src/stm_main.c:58:26: error: unknown type name ‘byte’
+../src/stm_main.c:58:83: error: unknown type name ‘byte’
+../src/stm_main.c:72:80: error: unknown type name ‘byte’
+../src/stm_main.c:72:99: error: unknown type name ‘byte’
+../src/stm_main.c:166:80: error: unknown type name ‘byte’
+../src/stm_main.c:166:99: error: unknown type name ‘byte’
+../src/stm_main.c:248:82: error: unknown type name ‘byte’
+../src/stm_main.c:248:101: error: unknown type name ‘byte’
+../src/stm_main.c:330:54: error: unknown type name ‘byte’
+../src/stm_main.c:330:73: error: unknown type name ‘byte’
+../src/stm_main.c: In function ‘main’:
+../src/stm_main.c:422:3: warning: implicit declaration of function ‘malloc’ [-Wimplicit-function-declaration]
+../src/stm_main.c:422:27: warning: incompatible implicit declaration of built-in function ‘malloc’ [enabled by default]
+../src/stm_main.c:424:3: error: unknown type name ‘byte’
+../src/stm_main.c:424:24: error: ‘byte’ undeclared (first use in this function)
+../src/stm_main.c:424:24: note: each undeclared identifier is reported only once for each function it appears in
+../src/stm_main.c:424:30: error: expected expression before ‘)’ token
+../src/stm_main.c:427:10: error: ‘in_constraints’ undeclared (first use in this function)
+../src/stm_main.c:427:34: error: expected expression before ‘)’ token
+../src/stm_main.c:430:3: warning: implicit declaration of function ‘create_constraint_stream_if’ [-Wimplicit-function-declaration]
+../src/stm_main.c:433:3: error: unknown type name ‘SbaStream’
+../src/stm_main.c:433:23: error: ‘SbaStream’ undeclared (first use in this function)
+../src/stm_main.c:433:33: error: expected expression before ‘)’ token
+../src/stm_main.c:434:10: error: request for member ‘num_const’ in something not a structure or union
+../src/stm_main.c:435:10: error: request for member ‘constnames’ in something not a structure or union
+../src/stm_main.c:436:10: error: request for member ‘constm’ in something not a structure or union
+../src/stm_main.c:439:14: error: ‘ss_out’ undeclared (first use in this function)
+../src/stm_main.c:439:3: warning: implicit declaration of function ‘SbaStream_init_empty’ [-Wimplicit-function-declaration]
+../src/stm_main.c:447:3: warning: implicit declaration of function ‘solver_constraint_wrapper’ [-Wimplicit-function-declaration]
+../src/stm_main.c:450:3: warning: implicit declaration of function ‘free’ [-Wimplicit-function-declaration]
+../src/stm_main.c:450:3: warning: incompatible implicit declaration of built-in function ‘free’ [enabled by default]
+make: *** [src/stm_main.o] Error 1
+
+**** Build Finished ****

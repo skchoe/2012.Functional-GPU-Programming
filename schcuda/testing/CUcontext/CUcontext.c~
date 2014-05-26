@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <malloc.h>
+
+typedef struct CUctx_st 
+*CUcontext;
+
+int num_pctx = 1;
+
+CUcontext ctx;
+
+int cuCreate(CUcontext *ctx_store)
+{
+
+}
+
+CUcontext cuAttach(CUcontext* ctx_store, CUcontext cc)
+{
+  ctx_store[0] = cc;
+  return cc;
+}
+
+int cuDetach(CUcontext* ctx_store, CUcontext ctx)
+{
+  if(ctx_store[0] == ctx){
+    ctx_store[0] = NULL;
+    printf ("found ctx of same value\n");
+    return 100;
+  }
+  else {
+    printf ("not found\n");
+    return 200;
+  }
+}
+
+int main(int argc, char** argv)
+{
+  CUcontext *ctx_store = (CUcontext*)malloc(num_pctx * sizeof(CUcontext));
+  CUcontext foo = (CUcontext)malloc(1100);
+   
+  CUcontext goo = cuAttach(ctx_store, foo);
+  printf ("detach result = %d\n", cuDetach(ctx_store, goo));
+}
+

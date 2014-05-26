@@ -1,0 +1,22 @@
+Goal of document:
+
+This document is written for sumbmitting a writing sample in applying job at
+attask.com which is company that produces project management software here at
+thanksgiving point, Utah. 
+
+I decided to write a small essay I feel fun while working GPU based set based
+static analysis because doing the project is still vivid experience up to now
+and the field is fresh to me and drives me to ask question from the scratch.
+
+SBA: Set based analysis of computer program.
+
+This is a technique in programming language and compiler that analize the
+behavior of program so that the result of analysis help programmer to ensure
+the solving the problem by the program is achived in right way before the
+program is converted into machine code and spening so much time for running to
+produce output.
+
+So the natural question is "Is static analysis helps to find bug faster than
+running the machine code and comimg across the error during run time?". The
+answer is no unless the cost of analysis is same as evaluation in actual
+running the code.  

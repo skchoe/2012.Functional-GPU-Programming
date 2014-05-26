@@ -1,0 +1,7 @@
+(let (cons-it (lambda (x) (let (r (cons x x)) r )))
+  (let (t1 1)
+    (let (pair1 (cons-it t1))
+      (let (t2 2)
+        (let (pair2 (cons1it t2))
+          (let (a (car pair2))
+            a))))))

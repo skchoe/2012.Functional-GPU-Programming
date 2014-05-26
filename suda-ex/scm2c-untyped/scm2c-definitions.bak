@@ -1,0 +1,38 @@
+(module scm2c-definitions scheme
+ 
+  
+(provide (all-defined-out))
+
+;; Don't indent on freshline -- continue on current line.
+(define CONTLINE -80)
+;; What is this for?
+(define EXTERN 'EXTERN)
+  
+;; These are the possible values of @var{use} arguments to
+;; @code{schlep-exp}.
+(define VOID 'VOID)  
+(define BOOL 'BOOL)
+(define VAL 'VAL)
+(define LONG 'LONG)
+(define COND 'cond)  
+(define LAMBDA 'lambda)
+(define QUOTE 'quote)
+  
+;; These are types and type-modifiers which Schlep treats specially.
+(define INT 'int)
+
+  
+;; These are the possible values of @var{termin} arguments to
+;; @code{schlep-exp}.
+
+(define RETURN "return")
+(define NONE "")
+(define COMMA ",")
+(define SEMI ";")
+(define SUBSCRIPT "]")
+    
+
+(define-struct port-set (in out-h out-cu))
+(define ***proc*** #f)
+(define _label-list_ '())  
+  )

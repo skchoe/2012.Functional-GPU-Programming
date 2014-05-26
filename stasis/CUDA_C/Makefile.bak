@@ -1,0 +1,17 @@
+
+#http://forums.nvidia.com/index.php?showtopic=193550
+
+
+# Add source files here
+EXECUTABLE	:= sba
+# Cuda source files (compiled with cudacc)
+CUFILES		:= cu_lib.cu
+# C/C++ source files (compiled with gcc / c++)
+CCFILES		:=
+CFILES		:= \
+	hashfunc.c hashtab.c driver.c
+USEDRVAPI     := 1
+#lib to verify.
+SOFILE	:= #libmatrixMul_gold.so
+
+include make_common.mk

@@ -1,0 +1,14 @@
+GPU accellerated set-based static analysis for scheme program.
+
+Youngrok Bahn
+Seungkeol Choe
+
+Introduction
+
+Set-based static analysis is a technique to check possible set of values for each expression in input program. For given input program, the operation of it is understood by the flow of set of values in each expression. In the flow of sets of values across expression, each set that corresponds to given expression represents the possible behavior of the expression in relative to other expression. In practice, we transform the program to be a standard form that uses variable in representing each expression, then we define the set as a raynge of a function from the name of the variables.  
+
+The general approach of this technique is composed of 2 phases: Derivation of contraint from program variable for each expression, and solving the system of constraint to get the possible value for each variables above. In derivation stage, we drive a constraints on a possible set of values for given program variable. Each constraint defines condition(s) so that every component of any syntax form validates the possible set of values to make the evaluation context of the expression can be well defined on top of valid values. Once all of the constraints are defined to be enough to produce a solution, we form a system of constraints and solve the system as a second phase (constraint solving). 
+
+Once an input program is given, the derived system of constaints implicitly means the bindings of either given constants or inferred values to program variables and the system of constraints represents set-relationship described above. Each constraint of the system can be solved by inspecting inclusion of an element to a set of possible values and subset relationship between the sets from other constraints. In terms of complexity of the algorithm, it is known that it costs n^3 where n is size of the program expressed as a set of program variables representing syntax form of the object language of the program. 
+
+In this proposal, we describe the set-based analysis technique in detail specific to scheme programming languge and propose the idea about how much parallelism using GPU can improve the performance of the technique. In section 1, we explains the idea of derivation and solving the constraints, in section 2, we propose implementation idea in detail, and in section 3, we present a possible speed up relative to implementation in serial computation.       

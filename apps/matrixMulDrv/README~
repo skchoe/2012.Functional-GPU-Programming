@@ -1,0 +1,9 @@
+
+Typed-racket kernel definition
+(Vectorof Float) (Vectorof Float) -> (Vectorof Float)
+
+kernel definition 
+
+(<pointer> <_float>) <cstruct:SizeType2>
+ <pointer> <_float>) <cstruct:SizeType2>
+

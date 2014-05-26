@@ -1,0 +1,126 @@
+#lang scheme
+(require scheme/system
+         scheme/foreign
+         "../../schcuda/scuda.ss"
+	 "../../schcuda/suda-set-env.ss"
+         "../../schcuda/ffi-ext.ss"
+         "../../schcuda/cuda_h.ss"
+         "../../schcuda/cutil_h.ss"
+         "../../schcuda/cuda_runtime_api_h.ss"
+         "../../schcuda/driver_types_h.ss")
+
+(unsafe!)
+(define (correct_output ptr-data n x)
+  (let loop ([count 0])
+    (if (< count n)
+        (let* ([elt (ptr-ref ptr-data _int count)])
+          (if (not (equal? elt x)) 0 (loop (add1 count))))
+        1)))
+
+(define (alloc-and-launch hfunc)
+  (let* ([n (* 1024 (* 1024 16))]
+         [nbytes (* n (ctype-sizeof _int))]
+         [value 26])
+    
+    ;allocate host memory    
+    (let*-values
+        ([(resulth h_a) (cudaMallocHost nbytes)]
+         ;; allocate device memory
+         [(resultc d_a) (cuMemAlloc nbytes)]
+         [(results d_a) (begin (memset h_a 0 nbytes)
+                               (cuMemsetD32 d_a 255 n))])
+
+      (printf "cudaMemset result = ~s\n" results)
+      (printf "pointer printing ~s\n" h_a)
+    
+      ;; create cuda event handles
+      (let*-values ([(resultt start) (cudaEventCreate)]
+                    [(resultp stop) (cudaEventCreate)])
+        ;(cutResetTimer timer)
+        (printf "Event Create: ~s ~s\n" resultt resultp)
+        (printf "Sync? = ~s\n" (cudaThreadSynchronize))
+
+        ;;  asynchroniously issue work to the GPU (all to stream 0)
+        ;(cutStartTimer timer)
+        (let ([resulte (cudaEventRecord start 0)])
+          (printf "STARTed?= ~s event status = ~s\n" 
+                  resulte (cudaEventQuery start))
+          (printf "h_a type = ~s\n" h_a)
+          (let*-values 
+              (
+               ;[(resulta d_a) (cudaMemcpyAsync d_a a nbytes
+               ;'cudaMemcpyHostToDevice 0)]
+               [(resulta d_a) (cuMemcpyHtoDAsync d_a h_a nbytes #f)]
+               )
+            
+            ;increment_kernel<<<blocks, threads, 0, 0>>>(d_a, value);
+            (let* ([block-sizex 512]
+                   [grid-w (/ n block-sizex)]
+                   [grid-h 1]
+                   [lst-offs (offsets-ctype (list _pointer _uint))]
+                   [offset0 (list-ref lst-offs 0)]
+                   [offset1 (list-ref lst-offs 1)])
+
+              (printf "func call offsets    = ~s ~s \n" offset0 offset1)
+
+              (let*-values ([(resultb hfunc)
+                             (cuFuncSetBlockShape hfunc block-sizex 1 1)]
+                            [(result0 hfunc) (cuParamSeti hfunc 0 d_a)]
+                            [(result1 hfunc) (cuParamSeti hfunc offset0 value)]
+                            [(result3 hfunc) (cuParamSetSize hfunc offset1)])
+
+                (let* ([resultl (cuLaunchGrid hfunc grid-w grid-h)])
+                  (printf "RESULT(cuLaunchGrid):~s\n" resultl)
+                  #f)))
+
+            ;; return from call of kernel
+            (let*-values ([(resultca h_na) (cuMemcpyDtoHAsync h_a d_a nbytes #f)])
+              (printf "Event(stop) record started = ~s\n" (cudaEventRecord stop 0))
+              (printf "STOP Really event is on = ~s\n" (cudaEventQuery stop))
+              #|
+              (printf "SYNC for completion of launching hfunc: ~s\n" (cuCtxSynchronize))
+              (printf "START READY? = ~s\n" (cudaEventQuery start))
+              (printf "STOP READY? = ~s\n" (cudaEventQuery stop))
+              |#
+              
+              ;; have CPU do some work while waiting for stage 1 to finish 
+              (let ([counter (let loop ([cnt 0])
+                               (if (equal? (cudaEventQuery stop) 'cudaErrorNotReady)
+                                   (begin (printf ">") (loop (add1 cnt)))
+                                   cnt))])
+                (printf "~s\n" (cudaEventQuery stop))
+                (let-values ([(resultet gpu_time) 
+                              (cudaEventElapsedTime start stop)])
+                  ;; print cpu and gpu times
+                  (printf "time spent executing by the GPU ~s\n" gpu_time)
+                  ;(printf "time spent by CPU in CUDA calls: ~s\n"  (cutGetTimerValue timer))
+                  (printf "CPU executed ~s iterations while waiting for GPU to finish\n" counter)
+                  
+                  (printf "---------------------------------------------------\n")
+                  (if (equal? 1 (correct_output h_na n value))
+                      (printf "Test PASSED\n");
+                      (printf "Test Failed\n"))))
+              
+              ;; release resources
+              (cudaEventDestroy start)
+              (cudaEventDestroy stop)
+              (cudaFreeHost h_na)
+              (cuMemFree d_a)
+              )))))))
+
+  
+(define (main)
+  
+  (let* ([kernel-name #"increment_kernel"]
+         [module_path "data/asyncAPI.sm_10.cubin"]
+         ;; Loading kernel from ctx->module
+         ;; set kernel launch configuration
+         [cubin-path (generate-cubin module_path)]
+         [cuDevice (last (suda-init-devices 0))])
+      ;; load kernel function
+      (let*-values ([(cuContext l-hfunc) 
+                     (load-kernel-driver cuDevice cubin-path kernel-name)])
+        (alloc-and-launch (car l-hfunc))
+        (cuCtxDetach cuContext))))
+
+(main)

@@ -1,0 +1,53 @@
+#lang scribble/doc
+
+@(require scribble/manual
+          scribble/extract)
+
+@title[#:tag "input"]{Random generation of input program}
+
+@defmodule[input-progs/ex-code-gen]
+
+@section{Example programs}
+The @racketmodname[input-progs/input-progs], @racketmodname[input-progs/input-progs-forseq] contain example programs with the result of set-values for variables for selective examples.
+As an initial test, contained examples has just simple valued functions and its applications. 
+
+@section{Randomly generated programs}
+
+The @racketmodname[input-progs/ex-code-gen] library provides routines for generating input program of sba-syntax by number of variables as input parameter
+
+There are restrictions and requirements for example programs from the random generation:
+
+@itemize[ @item{Uniformly distributed generation: the generation needs to be fairly diverse in choosing expression.
+                For this the choice if expression uses the distribution property of @racket['random] in the pool of expressions named by lst-expressions 
+                defined as @racket[(list 'h-c 'h-b 'h-lam 'h-cons 'if 'app 'term)] by a fucnction called @racket['pick-rdm-elt-from-list]}
+          @item{Solvability of constraints equations: In constraint solving stage, the propagation of values newly figured out need to reach eventuall to the values in heap.
+                            To hold this requirement, the generation function nput heap values from the top level enough : first 20% of variable is set to be heap member.}
+          @item{Simplicity of exmaples: This input generation does not allow defining a new function on the body of existing function definition.}
+          @item{Function is not entirely a first class value: function as an argument is not allowed.}
+          @item{Restriction on element of cons: functions as cons element is not allowed.}
+          @item{A function producing a definition of function is not allowed.}]
+
+Here is how to run it:
+
+By redefining the forms in the code ex-code-gen.rkt,
+
+@racketblock[
+(define VAR_MAX (expt 2 5))
+(define init-num-var 10)]
+
+The new code will have VAR_MAX variables. The first @racket[init-num-var] variable decide how many constant are initially given.
+Then the following code executes code genearation:
+
+
+@racketblock[
+        (let* ([lst-exp-name (list 'h-c 'h-b 'h-lam 'h-cons 'car 'cdr 'if 'app 'term)] ;; kinds of expression to be picked in random
+               [lst-hval (list 'h-c 'h-b 'h-lam 'h-cons)]
+               [num-var 0]
+               [num-depth 0])
+          (gen-prog num-var num-depth lst-exp-name lst-hval "input-prog-gen_10_10.rkt"))]
+
+@racket[lst-exp-name] is alist of symbols which representing expression names. There will be a variable which will be bounded to each of expression randomly genearated by the nemes.
+@racket[lst-hval] is a list which is a collection of names of heap variable. 
+
+
+@(include-extracted "../input-progs/ex-code-gen.rkt")

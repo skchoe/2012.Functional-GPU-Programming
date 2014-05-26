@@ -1,0 +1,58 @@
+#lang scheme
+(require syntax/to-string)
+(define input-file "example0.scm")
+(define ip (open-input-file input-file))
+(define sn (object-name ip))
+;(define l (parameterize ([read-accept-reader #t]) (read (open-input-file "#lang"))))
+;(length l)
+;(printf "~s\n" (list-ref l 0))
+
+(define (read-scm-stream ip)
+#|  (let next-line ()
+    (let* ((datum (read ip)))
+      (unless (eof-object? datum)
+        
+        (if (symbol? datum) (printf "\n> ~s\n" (symbol->string datum))
+            (printf "\n$ ~s\n" datum))
+	datum)
+
+        (next-line)))
+|#
+	(read ip)
+)
+(define lst (read-scm-stream ip))
+
+(define (print-list lst)
+  (for ([i (in-range (length lst))])
+    (let* ([elt (list-ref lst i)])
+	(if (list? elt)
+	  (print-list elt)
+	  (printf "elt = ~s\n" elt)))))
+	
+
+(define (parse-string str)
+	#f)
+
+(define (main)
+(for ([i (in-range (length lst))])
+  (let ([lst-elt (list-ref lst i)])
+    (printf "~s: ~s\n" i lst-elt)
+    (cons
+	[(string? lst-elt)
+	(begin	(printf "~s is string type\n" lst-elt)
+		(parse-string lst-elt))]
+	[(list? lst-elt) 
+	(printf "list!! of size ~s\n" (length lst-elt))]
+	[(pair? lst-elt)
+	(printf "pair!!\n")]
+#|	[(quote? lst-elt)
+	(printf "quote\n")]
+	[(quasi-quote? lst-elt)
+	(printf "quasi-quote\n")]
+|#
+	[(struct? lst-elt)
+	(printf "struct\n")]))))
+;	[else (printf "Don'tKnow\n")])))
+
+
+(main)

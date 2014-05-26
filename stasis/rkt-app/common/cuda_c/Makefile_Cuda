@@ -1,0 +1,17 @@
+
+#http://forums.nvidia.com/index.php?showtopic=193550
+
+
+# Add source files here
+EXECUTABLE	:= stmsba
+# Cuda source files (compiled with cudacc)
+CUFILES		:= stm_kernel.cu
+# C/C++ source files (compiled with gcc / c++)
+CCFILES		:=
+CFILES		:= \
+	stm_common.c stm_driver.c
+USEDRVAPI     := 1
+#lib to verify.
+SOFILE	:= #libmatrixMul_gold.so
+
+include ../../../../make_common.mk

@@ -1,0 +1,22 @@
+cross-cutting concerns -> loss of modularity in data / function (too tangled)
+: http://en.wikipedia.org/wiki/Cross-cutting_concern
+
+isolation/reuse of code happend in CPU-GPU communication when whey share the
+same sort of construct and need to access them in cpu/gpu separately -
+encapsulation in this case is useful not to write boilerplate code.
+ex) ref, set for hashtable in cpu/gpu.
+
+abstraction in constructing element in slide is reusable in any other
+slideshow object, power of gpu comes together: doens't need to redefine the
+behavior.
+
+--------------------------------------------------------------------
+how to use 3d scene graph program in Racket.
+Name the object I would like to come true other way (ShowGraph)
+ex: http://www.automenta.com/spacegraph
+
+-------------------------------------------------------------------
+what would be good name for node in 3D slide, which can show the
+characteristic of Functional Concept.
+
+---------------------------------------------------------

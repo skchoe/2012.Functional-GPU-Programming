@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdtprojectproperties>
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+<language name="CUDA Source File">
+<includepath>/home/u0332192/local/cuda/include</includepath>
+<includepath>/home/u0332192/local/GPU_SDK/C/common/inc</includepath>
+<includepath>/home/u0332192/local/GPU_SDK/CUDALibraries/common/inc</includepath>
+<includepath>/home/u0332192/local/GPU_SDK/shared/inc</includepath>
+
+</language>
+<language name="C++ Source File">
+
+</language>
+<language name="C Source File">
+
+</language>
+<language name="Object File">
+
+</language>
+<language name="Object File">
+
+</language>
+<language name="Assembly Source File">
+
+</language>
+</section>
+</cdtprojectproperties>

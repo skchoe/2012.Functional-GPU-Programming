@@ -1,0 +1,387 @@
+List of mathematical operation shown in CUDA example projects.
+
+BlackScholes
+ - Level 1: Primitive mathematics oparators
+ - Level 2: Probability density functions
+ - Level 3: BlackScholes Alg.
+ -> Level 3 computation on each kernel.
+
+Mandelbrot
+ - Level 1: Double single functions: dsadd, dssub, dsmul(DS product)
+ - Level 2: Mandelbrot function(int values), CalcMandelbrotDS
+ -> Level 3: MandelbrotX_smXX
+
+MersenneTwister
+ -> Level 2: Boxmuller transform
+ -> Level 3: Parallel random number generator (Mersenne Twister)
+
+MonteCarlo (Option Pricing)
+ -> Level 3: MonteCarloReduce, MonteCarloOneBlockPerOption
+ -> Level 3: InverseCNDKernel
+
+MonteCarloMultiGPU
+: skip
+
+SobelFilter
+ - Level 1
+ -> Level 3 : Compute Sobel Filter, SobelCopyImage, SobelTex
+
+alignedTypes
+ -> No kernel
+asyncAPI
+ -> simple increment
+
+bandwidthTest
+ -> No kernel
+
+bicubicTexture
+ -> Level 3: kernel for defining image pixel value by img. proc. alg.
+
+binomialOptions
+ -> Level 3: Binomial Options
+
+bitonic
+ -> Level 2: Parallel bitonic sort.
+
+boxFilter
+ -> Level 2: d_boxfilter_x(_y)
+ -> Level 3: d_boxfilter_x(_y)_global, d_boxfilter_x(_y)_tex.
+
+clock
+ -> Level 3: Time reduction to find minimum
+
+convolutionFFT2D
+ -> Level 3: Simple Use of CUFFT
+
+convolutionSeparable
+ -> Level 3: Separable Convolution 
+ . Note that the kernel uses Shared and global memory.
+
+convolutionTexture
+ -> Level 3: Simpler Convolution than above.
+
+cppIntegration
+ -> Level 2: Data shifting operation
+
+dct8x8
+  ??
+
+deviceQuery
+  skip
+
+dwtHaar1D
+ -> Level 3: sync, global/shared mem management, good example
+
+dxtc
+ -> Level 1: shift operation <<, >> 
+
+eigenvalues
+ -> Level 2: bisectKernel-Bisection method to find eighenvalue 
+                         of real symm. tridiagonal matrix
+
+fastWalshTransform
+ -> Level 3: Walsh Transform
+
+fluidsGL
+ -> Level 3: Force field, velocity advection, velocity defusion,
+             and force mass conservation.
+
+histogram256
+histogram64
+ -> Level 3: Histogram
+
+imageDenoising
+ -> Level 3: K-Nearest Neighbor Image denoising. Non-local Mean method.
+
+lineOfSight
+ -> Level 2: Angle, location - 2d, 3d vector calculus.
+
+marchingCubes
+ - Level 2: Spatial interp
+ -> Level 3: Marching cube alg.
+
+matrixMul
+matrixMulDrv
+ -> Level 3: Mutl. using shared mem.
+
+nbody
+ -> Level 2: spatial linear alg.
+
+oceanFFT
+ -> Level 3: Wave height field
+
+particles
+ -> Level 3: Hashmap, large data handling.
+
+postProcessGL
+ -> Level 2: 2D convolution using shared memory
+
+quasirandomGenerator
+ -> Level 2: Quasi randum No. Gen.
+
+recursiveGaussian
+ - Level 2: Matrix Transpose
+ -> Level 3: Recursive Gaussian computation.
+
+reduction
+ -> Level 2: Parallel Reduction
+
+scalarProd
+ -> Level 2: Parallel scalar product.
+
+scan
+scanLargeArray
+ -> Level 3: scanning alg. by Blelloch, good example for using shared/constant mem.
+
+simpleAtomicIntrinsics
+ -> Level 1: Atomic commands.
+
+simpleCUBLAS
+ -> N/A, just an API for C program.
+
+simpleCUFFT
+ -> Level 2: Convolution operator
+
+simpleGL
+simpleGLDrv
+ -> Level 3: Drawing quaded surface using GL.
+
+simpleMultiGPU
+ -> Level 2: reduce algori. in multi GLPU env.
+
+simpleStreams
+ -> Level 1: array init.
+
+simpleTemplates
+ -> N/A
+
+simpleTexture
+simpleTextureDrv
+simpleTexture3D
+ -> Level 1: Image scale/translation
+
+simpleVoteIntrinsics
+ -> Level 2: take values across warp, do boolean op'n.
+
+template
+ -> N/A
+
+threadMigration
+ ->  N/A
+
+transpose
+ -> Level 2: transpose.
+volumeRender
+ -> Level 3: volume rendering alg.
+
+----------------------------------------------------------------------------
+array operators for default device math-functions.
+(input - array)
+(distribution)
+(call math ftn in each device:
+(synchronize, gather back in host)
+ 
+
+MAGMA project at univ.Tennessee.
+http://www.netlib.org/lapack/lawnspdf/lawn210.pdf
+
+* Use of __synchronize() in a kernel causes 
+  the idea about depodnence across thread/block
+  during computation.
+
+
+------------------------------------------------------------------------------
+Meeting 01/13/2009
+-Convolution operator using Parallel GPU.
+ (convol param1 ...) -> 1. calling module (w/ cuda FFI)
+                        2. *.cubin generation
+                        3. launch the cuFunctions
+                        4. Return the result.
+
+
+  Current status: 1. was tested for being packaged
+                  2. On main focus: How to generate c-code, calling the library functions
+                  3. Done
+                  4. Even not started.
+
+Meeting 01/20/2009.
+- Side Idea:
+  * Fastest implementation -> FFI for cufft, cublas.
+       issue: how to deal with __device inline function in header file?
+              : Ignore for now.
+       -> keep doing fft
+          cufft example: __device__, __host__ function is used from host and device at the same time.
+
+  * Standard mathematical functions with array data structure
+
+- Approach discussion
+  * 
+  
+
+Email 1/17/09
+
+Thank you the coercing a number to a pointer works in this case.
+Is there any way we can do conversely?
+i.e. ??? : _cpointer -> _int : evaluate the address of given cpointer.
+
+By the way, I got caught by a problem.
+As you wrote below, the flow of the program is
+1. cuMemAlloc     : memory allocation on GPU
+2. cuMemcpyHtoD   : copy data into GPU
+3. cufftPland1d   : configuration for fft (defining array size)
+4. cufftExecC2C   : execute FFT, return the array of complex values.
+
+In stage 4, I have a problem in defining FFI. 
+It worked in C/CU, but not in scheme.
+cufftResult CUFFTAPI cufftExecC2C(cufftHandle plan, 
+                                  cufftComplex *idata,
+                                  cufftComplex *odata,
+                                  int direction);
+
+This function takes `plan':int(configutation returned by stage3),
+                    `idata': pointer to array of complex numbers,
+               and  `direction':int for fft.
+And it uses `odata' as an input and output at the same time because if
+idata and odata is same, it computes fft without allocating new place.
+
+It seems this function's output is only the address of first element
+of odata and allow to be accessed by the the indices within array range.
+
+I tried a few FFI definitions for it such as:
+(define-foreign-cufft cufftExecC2C (plan : _cufftHandle) 
+                                   (idata : (_cpointer 'cufftComplex))
+                                   (odata : ???)
+                                   (direction : _int)
+                                   -> (result : _cufftResult)
+                                   -> (values result odata))
+ where ??? is either (_ptr io _cufftComplex)
+                  or (_cpointer 'cufftComplex).
+
+------------------------------------------------------------------
+The following is a part of the code in scheme to use `cufftExecC2C'.
+------------------------------------------------------------------
+
+    (let* ([h_signal_0 (malloc _float2 (* (ctype-sizeof _float2) SIGNAL_SIZE))]
+           [h_signal (randomInit-Complex-X h_signal_0 SIGNAL_SIZE)]) ; definition of h_signal in host memory
+
+      ;;PadData, generates new h_padded_signal, h_padded_filter_kernel
+      (let*-values ([(h_padded_signal h_padded_filter_kernel new_size)
+                     (PadData h_signal SIGNAL_SIZE h_filter_kernel FILTER_KERNEL_SIZE)]) ; define new array in host 
+                                                                                         ; for ffi computation.
+
+        (let* ([mem_size (* (ctype-sizeof _cufftComplex) new_size)])    ; cuda takes only memory size in byte form
+
+          (let*-values 
+              ([(result1 d_signal_0) (cuMemAlloc mem_size)]             ; memory allocation on GPU
+               [(result2 d_signal_1)
+                (cuMemcpyHtoD d_signal_0 h_padded_signal mem_size)])    ; defining there with h_padded_signal
+
+            (let* ([d_signal_1-ptr (cast-loc-to-pointer d_signal_1 'cufftComplex)]) ; just casting pointer to address
+              
+              (let*-values
+
+                  ([(result35 plan) (cufftPlan1d new_size 'CUFFT_C2C 1)] ; fft configuration, registering size of array
+
+                   [(result4 d_signal) 
+                    (cufftExecC2C plan
+                                  d_signal_1-ptr
+                                  d_signal_1-ptr
+                                  CUFFT_FORWARD)])
+                  #f))))))
+
+------------------------------------------------------------------
+While running, I got error message from CUFFT library 'CUFFT_EXEC_FAILED'. 
+But the C code worked fine.
+
+So I believe there's some problem mapping from scheme to C function
+which is mostly from FFI definition and its usage.
+
+
+Here's the corresponding Cuda code:
+    // Allocate device memory for signal
+    int d_signal;
+    cuMemAlloc(&d_signal, mem_size);
+
+    // Copy host memory to device
+    cuMemcpyHtoD(d_signal, h_padded_signal, mem_size);
+
+    // CUFFT plan
+    int plan;  
+    cufftPlan1d(&plan, new_size, CUFFT_C2C, 1);
+
+    // Transform signal and kernel
+    cufftExecC2C(plan, (cufftComplex *)d_signal, 
+		        (cufftComplex *)d_signal, CUFFT_FORWARD);
+
+where cufftComplex = struct {float x, float y}.
+
+One more thing is about number precision.
+For given scheme number(generated by (random)), how can sent to FFI with 
+single precision float value? 
+
+Thank you for the help.
+
+Seungkeol
+
+Quoting Matthew Flatt <mflatt@cs.utah.edu>:
+
+> I'm not sure I understand. I imagine that cuMemAlloc returns an integer
+> instead of a pointer because you can't actually write to the address
+> directly; you have to use some other function (like cuMemcpyHtoD ?) to
+> store into the allocated space.
+>
+> So what is `foo'? Does it expect a pointer that it can read/write
+> directory, or does it expect an integer of the sort that cuMemAlloc
+> creates? Or is it supposed to work with both?
+>
+> If it's supposed to work with both, then one way to make the types
+> match is to coerce a number to a pointer using `ptr-add'. For example,
+> `(ptr-add #f 5)' effectively casts the number 5 to a pointer.
+>
+> At Fri, 23 Jan 2009 10:18:47 -0700, skchoe@cs.utah.edu wrote:
+>> Dear,
+>>
+>> I made mistake to the original question this morning.
+>>
+>> The array of complex number is not of form cpointer but just an integer.
+>>
+>> It was allocated by cuMemAlloc
+>> which is defined by
+>>
+>> (_fun (loc : (_ptr o _uint)
+>>               (bytesize : _uint) -> _void -> loc))
+>>
+>>
+>> The C code is like this:
+>>
+>> typedef device_ptr int;
+>> unsigned int size = 1024;
+>> device_ptr loc = cuMemAlloc(size);
+>> foo((Complex *) z, size);
+>>
+>> In scheme,
+>> (let ([loc (cuMemAlloc size)])
+>>     (foo ??-loc-?? size))
+>>
+>> where foo is defined by either
+>> (_fun _Complex-pointer _uint -> _void)
+>> or
+>> (_fun (_cpointer 'Complex) _uint -> _void).
+>>
+>> I think this is basically about how to interoperate integer type and
+>> cpointer type in representing c-pointer values as a location.
+>>
+>> Thank you.
+>>
+>> Seungkeol
+>>
+>>
+>>
+>>
+>> ----------------------------------------------------------------
+>> This message was sent using IMP, the Internet Messaging Program.
+>
+
+
+
+  :

@@ -1,0 +1,52 @@
+#lang scheme
+
+(((concat #\-) (make-string . literal-string55))
+ ((concat #\() (make-string . literal-string55))
+ ((concat #\,) (make-string . literal-string55)) 
+ ((concat #\)) (make-string . literal-string55)) 
+ 
+ ((concat #\z #\e #\r #\o #\?) (make-string . literal-string55))
+ ((concat #\() (make-string . literal-string55))
+ ((concat #\)) (make-string . literal-string55))
+
+ ((concat #\i #\f) (make-string . literal-string55)) 
+ ((concat #\t #\h #\e #\n) (make-string . literal-string55)) 
+ ((concat #\e #\l #\s #\e) (make-string . literal-string55)) 
+ 
+ ((concat #\l #\e #\t) (make-string . literal-string55)) 
+ ((concat #\=) (make-string . literal-string55)) 
+ ((concat #\i #\n) (make-string . literal-string55)) 
+ 
+ ((concat #\p #\r #\o #\c) (make-string . literal-string55)) 
+ ((concat #\() (make-string . literal-string55)) 
+ ((concat #\:) (make-string . literal-string55)) 
+ ((concat #\)) (make-string . literal-string55))
+ ((concat #\() (make-string . literal-string55)) 
+ ((concat #\)) (make-string . literal-string55)) 
+ 
+ ((concat #\l #\e #\t #\r #\e #\c) (make-string . literal-string55)) 
+ ((concat #\() (make-string . literal-string55)) 
+ ((concat #\:) (make-string . literal-string55)) 
+ ((concat #\)) (make-string . literal-string55)) 
+ ((concat #\=) (make-string . literal-string55)) 
+ ((concat #\i #\n) (make-string . literal-string55)) 
+ 
+ ((concat #\?) (make-string . literal-string55)) 
+ 
+ ((concat #\i #\n #\t) (make-string . literal-string55)) 
+ 
+ ((concat #\b #\o #\o #\l) (make-string . literal-string55))
+ 
+ ((concat #\() (make-string . literal-string55)) 
+ ((concat #\- #\>) (make-string . literal-string55)) 
+ ((concat #\)) (make-string . literal-string55))
+ 
+ ((concat #\% #\t #\v #\a #\r #\- #\t #\y #\p #\e) (make-string . literal-string55))
+ 
+ (whitespace (skip . whitespace)) 
+ ((concat #\%) (arbno (not #\newline)) (skip . comment)) 
+ 
+ (letter (arbno (or letter digit (concat #\_) (concat #\-) (concat #\?))) (symbol . identifier))
+ 
+ (digit (arbno digit) (number . number))
+ ((concat #\-) digit (arbno digit) (number . number)))

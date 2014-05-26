@@ -1,0 +1,97 @@
+#lang scheme
+(require scheme/foreign)
+(unsafe!)
+
+(define size 12)
+(define str-lib (case (system-type 'os) 
+                  [('windows) (ffi-lib "string-test")]
+                  [('macosx 'unix) (ffi-lib "libout")]))
+
+
+(define get-float (get-ffi-obj 'get_float str-lib (_fun -> _float) #f))
+(define get-string (get-ffi-obj 'get_string str-lib (_fun -> _string) #f))
+
+(define get-string-arg (get-ffi-obj 'get_string_arg 
+                                    str-lib 
+                                    (_fun (io : (_bytes o size)) (size : _uint)
+                                          -> _void -> io) #f))
+
+(define get-float-arg (get-ffi-obj 'get_float_arg 
+                                    str-lib 
+                                    (_fun (io : (_list o _float size)) (size : _uint)
+                                          -> _void -> io) #f))
+
+(printf "proc1: output = ~s\n" (get-string))
+(printf "proc2: output = ~e\n" (get-string-arg size))
+(printf "FLOAT = ~s\n" (get-float))
+(define new-size 100)
+(for-each (lambda (x) (printf "~s\t" x)) (get-float-arg new-size))
+(printf "\n")
+
+#|
+Robert Nikander wrote:
+> Hi,
+>
+> I have a C function like
+>
+> void get_chars(int n, uint16 *str);
+>
+> that fills the buffer 'str' with a utf-16 string. I'd like to call it
+> and end up with a Scheme string. It looks like the "_string/utf-16"
+> ctype knows how to do the conversion, but I don't see how to use it in
+> this case. Can I?
+It would be nice to use _string/utf-16 as an output type, but it doesn't
+seem like thats provided. You can probably make a new custom type that
+converts between a sequence of 16-bit characters into regular scheme
+strings. I'll admit that I don't know much about unicode and its
+variations but the only function I could find in mzscheme that dealt
+with converting utf16 into something else was scheme_utf16_to_ucs4. I
+hacked this up
+
+void x( int x, unsigned char * q ){
+q[0] = 0;
+q[1] = 'b';
+q[2] = 0;
+q[3] = 'd';
+q[4] = 0;
+q[5] = 0;
+}
+
+(require (lib "foreign.ss"))(unsafe!)
+
+(define libx (ffi-lib "libx"))
+
+(define convert (get-ffi-obj "scheme_utf16_to_ucs4" #f (_fun _bytes _int
+_int (out : (_bytes o length)) (length : _int) (_ptr o _int) _int ->
+_pointer -> out)))
+
+(define x (get-ffi-obj "x" libx (_fun (length : _int) (foo : (_bytes o
+(+ length 2))) -> _void -> (convert foo 0 length (+ length 1) 0))))
+
+(printf "~a\n" (x 6))
+
+mzscheme -vf x.ss
+Welcome to MzScheme v371 [3m], Copyright (c) 2004-2007 PLT Scheme Inc.
+bd
+
+
+`scheme_utf16_to_ucs4' is what the foreign library uses internally to
+convert utf16 into a scheme string.
+
+
+
+Thanks, that puts me on the right track.  I had missed that  
+`scheme_utf16_to_ucs4' function.
+
+I had been using this, for a function type
+
+     (_fun (n) :: (n : _int) (result : (_list o _uint16 n)) -> _void ->
+                  (list->string (map integer->char result)))
+
+But I don't know much about unicode either, and I'm not sure about  
+integer->char... I thought there were times in utf16 when one  
+character took 32 bits.
+
+Rob
+
+|#

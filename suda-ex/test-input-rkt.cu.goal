@@ -1,0 +1,35 @@
+
+__device__ int let-ex(int* K) {
+
+__device__ int infix4174;
+ 
+__device__ int a;
+ a = 1;
+
+
+__device__ int b;
+ b = 2;
+
+
+__device__ int c;
+ c = 4;
+
+__device__ int add13993;
+ 
+__device__ int n39001;
+ n39001 = 1;
+
+add13993 = 1 + n39001;
+// (+ 1 1) - (ts2c-apply f args)
+
+__device__ int b;
+b=1;
+__device__ int c;
+c=1;
+
+
+__device__ int a;
+a = b + c;
+
+*K = a;
+};

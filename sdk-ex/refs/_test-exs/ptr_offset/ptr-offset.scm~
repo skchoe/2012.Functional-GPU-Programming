@@ -1,0 +1,7 @@
+#lang scheme
+(require scheme/foreign)
+
+(unsafe!)
+
+(define loc (malloc _int 10))
+(printf "location offset = ~s\n" (ptr-offset loc))

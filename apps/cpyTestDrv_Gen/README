@@ -1,0 +1,43 @@
+kernel in cu:
+test_kernel( float* d_array_in, size_t count, int d_single_in, float* d_array_out, size_t* d_array_out_len, int* d_single_out)
+
+Declaration in typed/racket
+(: test_kernel
+  ((Vectorof Float) Exact-Nonnegative-Integer Integer
+  ->
+  (values (Vectorof Float) Exact-Nonnegative-Integer Integer)))
+
+kernel launcher
+("kernel-name" "kernel-path" '(out-length0 out-length1) '(in-ptr in-length) in-value)
+                              =========================  ----------------------------
+
+Type transform:
+
+  ((Vectorof Float) Exact-Nonnegative-Integer Integer
+  ->
+  (values (Vectorof Float) Exact-Nonnegative-Integer Integer)))
+=>
+  ((<pointer> <float>) <uint32>) <int32>
+  ->
+  ((<pointer> <float>) <uint32>) ((<pointer> <uint32>) <int32>)
+
+
+Type / Value matching, call (cuParamSet)
+
+  domain: (in-ptr in-length)  ~  ((<pointer> <float>) <uint32>)
+          in-value            ~  <int32>
+
+  range : (#f out-length0)       ~ ((<pointer> <float>) <uint32>)
+          (#f out-length1)       ~ ((<pointer> <uint32>) <uint32>)
+
+
+gAlloc, Call (cuParamSet) by (type-value)
+
+  cuParamSetv if ((<pointer> ... -> (cuMemAlloc), (cuMemcpy), param-set if input
+  cuParamSetv if ((<pointer> ... -> (cuMemAlloc), param-set if output
+  cuParamSetf if <float>         -> param-set
+  cuParamSeti if <int32>         -> param-set
+
+  (cuLaunch)
+
+  (malloc), (cuMemcpy) if output

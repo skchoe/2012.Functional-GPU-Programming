@@ -1,0 +1,24 @@
+;#lang scheme
+(module example0.scm scheme
+
+(require "../schcuda/vector_types_h.ss")
+
+(define block-idx (make-int2 0 0))
+(define block-dim (make-int2 0 0))
+(define thread-idx (make-int2 0 0))
+
+(define kernel 
+  (lambda (pos width height time)
+  (let* ([x (+ (* (int2-x block-dim) (int2-x block-idx)) 
+	       (int2-x thread-idx))]
+	 [y (+ (* (int2-y block-dim) (int2-y block-idx)) 
+	       (int2-y thread-idx))]
+	 [u (- (* 2.0 (/ x width)) 1.0)]
+	 [v (- (* 2.0 (/ y width)) 1.0)]
+	 [freq 5.0]
+	 [w (* (+ (sin (+ (* u freq) time))
+		  (cos (+ (* v freq) time)))
+	       0.5)])
+    (vector-set! pos (+ (* y width) x) (make-float4 u v w 1.0))
+    pos)))
+)

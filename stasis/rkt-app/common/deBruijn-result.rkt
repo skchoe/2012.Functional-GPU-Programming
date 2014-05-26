@@ -1,0 +1,55 @@
+#lang racket
+
+;; need var renaming by alpha conversion.
+'(let (x (let (z-proc (lambda (z)
+                        (let (x (cons z z))
+                          x)))
+           (let (w-proc (lambda (z-proc) 
+                          (let (w1 (cdr z-proc))
+                            w1)))
+             (let (cons1 (cons z-proc w-proc))
+               (let (app-w (apply w-proc cons1))
+                 (let (cons1 (apply z-proc app-w))
+                   cons1))))))
+   (let (x (lambda (u) 
+             (let (y1 (cons x x)) 
+               y1)))
+     (let (x (car x))
+       (let (x (apply x x))
+         x))))
+
+;; need nameless
+'(let (v14824 (let (z-proc (lambda (z) 
+                             (let (x (cons z z)) 
+                               x)))
+                (let (w-proc (lambda (v14822) 
+                               (let (w1 (cdr v14822))
+                                 w1)))
+                  (let (cons1 (cons z-proc w-proc))
+                    (let (app-w (apply w-proc cons1))
+                      (let (v14823 (apply z-proc app-w))
+                        v14823))))))
+   (let (v14825 (lambda (u) 
+                  (let (y1 (cons v14824 v14824))
+                    y1)))
+     (let (v14826 (car v14825))
+       (let (v14827 (apply v14826 v14826))
+         v14827))))
+
+
+'(let (let (lambda 
+               (let (cons 0 0) 
+                 0))
+        (let (lambda 
+                 (let (cdr 0)
+                   0))
+          (let (cons 3 0)
+            (let (apply 1 0)
+              (let (apply 5 0)
+                0)))))
+   (let (lambda 
+            (let (cons 1 1) 
+              0))
+     (let (car 0) 
+       (let (apply 0 0)
+         0))))

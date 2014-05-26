@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>CS 5510  Homework 3</title></head><body style="width: 45em; margin-left: auto; margin-right: auto;"><h2>CS 5510  Homework 3</h2><p>Due: Thursday, September 15th, 2011 10:45am</p><h3>Part 1 &#8211; Conditionals</h3><p>Start with the <a href="http://www.eng.utah.edu/%7Ecs5510/cf1wae.rkt">F1WAE interpreter plus compiler</a> that uses deferred substitution. Add an <tt>if0</tt> form to the language:</p><pre>  &lt;F1WAE&gt; = ....
+          | {&lt;if0&gt; &lt;F1WAE&gt; &lt;F1WAE&gt; &lt;F1WAE&gt;}</pre><p>The interpreter should evaluate <tt>if0</tt> by evaluating the first sub-expression. If it produces <tt>0</tt>,
+ then the interpreter should evaluate the second sub-expression and 
+return its result (and not evaluate the third sub-expression). If the 
+first sub-expression produces any other number, the interpreter should 
+evaluate the third sub-expression and return its result (and not 
+evaluate the second sub-expression).</p><p>Also fix <tt>compile</tt> and <tt>cinterp</tt> to support <tt>if0</tt>, and add test cases for <tt>interp*</tt>.</p><p>Some examples:</p><pre>  (test (interp (parse '{if0 0 1 2})
+                (list)
+                (mtSub))
+        1)
+  (test (interp (parse '{if0 1 1 2})
+                (list)
+                (mtSub))
+        2)
+  (test (interp (parse '{if0 {f 5} 1 2})
+                (list (parse-defn '{deffun {f x} {- x 5}}))
+                (mtSub))
+        1)
+  (test (interp* (parse '{if0 {f 5} 1 2})
+                 (list (parse-defn '{deffun {f x} {- x 5}})))
+        1)
+</pre><h3>Part 2 &#8211; Compiling Function Names to Offsets</h3><p>The 
+starting compiler for F1WAE preserves function names in application 
+forms. Since the order of function definitions never changes, however, 
+the compiler could convert a function name into an index into a list of 
+function bodies.</p><p>Change the representation of <tt>capp</tt> and the <tt>compile</tt> function so that a <tt>capp</tt> has a function index instead of the name. Of course, <tt>compile</tt> will need to take a list of defined functions (or at least the names) in addition to an expression.</p><p>Also change <tt>cinterp</tt> to take a Racket list of function-body expressions, instead of a list of <tt>CFunDef</tt>. You should be able to remove the<tt>CFunDef</tt> datatype completely.</p><p>Finally, be sure to change <tt>interp*</tt> so that it works with the revised <tt>compile</tt> and <tt>cinterp</tt> functions.</p><p>All of the old <tt>interp*</tt> tests should work, and you should add more to include tests with multiple definitions.</p><hr><table width="100%"><tbody><tr><td align="right">Last update: Wednesday, September 7th, 2011<address>mflatt@cs.utah.edu</address></td></tr></tbody></table></body></html>

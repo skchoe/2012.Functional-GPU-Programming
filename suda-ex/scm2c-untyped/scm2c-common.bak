@@ -1,0 +1,95 @@
+(module scm2c-common scheme
+  
+(require "scm2c-definitions.ss")
+  
+(provide (all-defined-out))
+
+(define (write-to-outport indent ports . lst-content)
+  (let ([output-port (port-set-out-cu ports)])
+    (newline output-port)
+    (do ((j indent (- j 8)))
+	     ((> 8 j)
+              (do ((i j (- i 1)))
+		  ((>= 0 i))
+		(display #\space output-port))))
+    ports))
+  
+(define (comment-out indent str ports)
+  (if (number? str) 
+      (comment-out indent (number->string))
+      (write-to-outport indent ports "/*" str "*/")))
+  
+(define (remove-quote sexp)
+  (if (and (pair? sexp) (eq? 'quote (car sexp)))
+      (cadr sexp)
+      sexp))
+  
+;; Removes or translates characters from @1 and displays to @2
+(define (c-ify-string name port)
+  (define visible? #f)
+  (for-each
+   (lambda (c)
+     (let ((tc (cond ((char-alphabetic? c) c)
+		     ((char-numeric? c) c)
+		     ((char=? c #\%) "_Percent")
+		     ((char=? c #\@) "_At")
+		     ((char=? c #\=) "Eql")
+		     ((char=? c #\:) #\_)
+		     ((char=? c #\-) #\_)
+		     ((char=? c #\_) #\_)
+		     ((char=? c #\>) "to_")
+		     ((char=? c #\?) "_P")
+		     ((char=? c #\.) ".")
+		     (else #f))))
+       (cond (tc (set! visible? #t) (display tc port)))))
+   (string->list name)))
+
+(define (c-ify-symbol name port)
+  (c-ify-string (symbol->string name) port))
+
+
+;; Makes a temporary variable name.
+(define (tmpify sym)
+  (string->symbol (string-append "T_" (symbol->string sym))))
+
+;; Makes a label name.
+(define (lblify sym)
+  (string->symbol (string-append "L_" (symbol->string sym))))
+;alist = ((#<procedure:.../import-slib.scm:135:4> "*-ct" long 0 0))
+(define (assoc-if str alst)
+  (cond ((null? alst) #f)
+	(((caar alst) str) (car alst))
+	(else (assoc-if str (cdr alst)))))
+  
+;;; LOOKUP - translate from table or return arg as string
+(define (lookup arg tab)
+  (let* ((p (assq arg tab))
+	 (l (if p (cdr p) arg)))
+    (if (symbol? l) (symbol->string l) l)))
+  
+(define (c-ify-char chr)
+  (cond ((char-alphabetic? chr) (string chr))
+	((char-numeric? chr) (string chr))
+	(else
+	 (case chr
+	   ((#\! #\" #\# #\$ #\% #\& #\' #\( #\) #\* #\+ #\, #\- #\. #\/
+	     #\: #\; #\< #\= #\> #\? #\@
+	     #\[     #\] #\^ #\_ #\`
+	     #\{ #\| #\} #\~)
+	    (string chr))
+	   ((#\\) "\\\\")
+	   ((#\newline) "\\n")
+	   ((#\tab) "\\t")
+	   ((#\backspace) "\\b")
+	   ((#\return) "\\r")
+           ;((#\page) "\\f")
+	   ((#\space) " ")
+	   ;;((#\null) "\\0")
+	   (else
+	    (let ((numstr (number->string (char->integer chr) 8)))
+	      (string-append
+	       "\\" (make-string (- 3 (string-length numstr)) #\0) numstr)))))))
+  
+  
+  
+)

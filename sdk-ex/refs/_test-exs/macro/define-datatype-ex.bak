@@ -1,0 +1,17 @@
+#lang scheme
+
+(define-syntax define-datatype
+  (lambda (stx)
+    (syntax-case stx ()
+      [(_ name pred-name variant ...)
+       (begin (printf "1st\n")
+              (if (null? (syntax->list (syntax (variant ...))))
+                  (printf "~s\n" 'null)
+                  (printf "isn't null: ~s\n" (syntax->datum (syntax (variant ...)))))
+           
+              (syntax #t))];"~s ~s\n" name pred-name)]
+      
+      [else (printf "else\n")
+            (syntax #f)])))
+
+(define-datatype a b c)

@@ -1,0 +1,5 @@
+(let (cons-it (cons 1 2))
+  (let (t1 (car cons-it))
+    (let (pair1 (cons t1 3))
+      (let (t2 100)
+        pair1))))

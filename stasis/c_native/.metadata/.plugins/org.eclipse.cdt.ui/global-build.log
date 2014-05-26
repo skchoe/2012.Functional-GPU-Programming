@@ -1,0 +1,1713 @@
+
+**** Clean-only build of configuration Debug for project sba_cuapp2 ****
+
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_clib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.c
+Invoking: GCC C Compiler
+gcc -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:5:0:
+/home/skchoe/project-gpu/inc/gstm_common.h:5:8: error: expected identifier or ‘(’ before string constant
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_clib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.c
+Invoking: GCC C Compiler
+gcc -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_a_constraint(byte*, size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:45:6: error: previous declaration of ‘void print_a_constraint(byte*, size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:13:85: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_var_constraints(byte**, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:43:6: error: previous declaration of ‘void print_var_constraints(byte**, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:34:54: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:46:6: error: previous declaration of ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:59:139: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:48:6: error: previous declaration of ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:111:62: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:51:6: error: previous declaration of ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:126:114: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte* streamizer(byte*, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:58:7: error: previous declaration of ‘byte* streamizer(byte*, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:150:55: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2pchar(int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:59:6: error: previous declaration of ‘void int2pchar(int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:155:35: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int least_upper_binary(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:39:14: error: previous declaration of ‘unsigned int least_upper_binary(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:164:40: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int size2store(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:38:14: error: previous declaration of ‘unsigned int size2store(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:169:32: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void array_num_const_to_string(int*, int, int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:60:6: error: previous declaration of ‘void array_num_const_to_string(int*, int, int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:178:92: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void fill_char(int, byte*, char)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:62:6: error: previous declaration of ‘void fill_char(int, byte*, char)’ with ‘C++’ linkage
+../src/gstm_common.cpp:194:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2bytes(int, byte*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:63:6: error: previous declaration of ‘void int2bytes(int, byte*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:204:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void bytes2int(byte*, int*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:54:6: error: previous declaration of ‘void bytes2int(byte*, int*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:219:51: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte getRandomConstraintName()’:
+/home/skchoe/project-gpu/inc/gstm_common.h:65:6: error: previous declaration of ‘byte getRandomConstraintName()’ with ‘C++’ linkage
+../src/gstm_common.cpp:233:30: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int constname2numconstvar(byte)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:66:5: error: previous declaration of ‘int constname2numconstvar(byte)’ with ‘C++’ linkage
+../src/gstm_common.cpp:243:33: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int longest_constraint_byte(size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:67:5: error: previous declaration of ‘int longest_constraint_byte(size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:260:74: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘size_t constraint_length(byte, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:68:8: error: previous declaration of ‘size_t constraint_length(byte, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:270:76: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int max_num_constraints(int, int*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:69:5: error: previous declaration of ‘int max_num_constraints(int, int*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:285:49: error: conflicts with new declaration with ‘C’ linkage
+make: *** [src/gstm_common.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_clib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_a_constraint(byte*, size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:45:6: error: previous declaration of ‘void print_a_constraint(byte*, size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:13:85: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_var_constraints(byte**, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:43:6: error: previous declaration of ‘void print_var_constraints(byte**, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:34:54: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:46:6: error: previous declaration of ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:59:139: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:48:6: error: previous declaration of ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:111:62: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:51:6: error: previous declaration of ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:126:114: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte* streamizer(byte*, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:58:7: error: previous declaration of ‘byte* streamizer(byte*, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:150:55: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2pchar(int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:59:6: error: previous declaration of ‘void int2pchar(int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:155:35: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int least_upper_binary(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:39:14: error: previous declaration of ‘unsigned int least_upper_binary(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:164:40: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int size2store(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:38:14: error: previous declaration of ‘unsigned int size2store(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:169:32: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void array_num_const_to_string(int*, int, int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:60:6: error: previous declaration of ‘void array_num_const_to_string(int*, int, int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:178:92: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void fill_char(int, byte*, char)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:62:6: error: previous declaration of ‘void fill_char(int, byte*, char)’ with ‘C++’ linkage
+../src/gstm_common.cpp:194:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2bytes(int, byte*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:63:6: error: previous declaration of ‘void int2bytes(int, byte*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:204:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void bytes2int(byte*, int*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:54:6: error: previous declaration of ‘void bytes2int(byte*, int*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:219:51: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte getRandomConstraintName()’:
+/home/skchoe/project-gpu/inc/gstm_common.h:65:6: error: previous declaration of ‘byte getRandomConstraintName()’ with ‘C++’ linkage
+../src/gstm_common.cpp:233:30: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int constname2numconstvar(byte)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:66:5: error: previous declaration of ‘int constname2numconstvar(byte)’ with ‘C++’ linkage
+../src/gstm_common.cpp:243:33: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int longest_constraint_byte(size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:67:5: error: previous declaration of ‘int longest_constraint_byte(size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:260:74: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘size_t constraint_length(byte, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:68:8: error: previous declaration of ‘size_t constraint_length(byte, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:270:76: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int max_num_constraints(int, int*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:69:5: error: previous declaration of ‘int max_num_constraints(int, int*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:285:49: error: conflicts with new declaration with ‘C’ linkage
+make: *** [src/gstm_common.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+Finished building: ../src/gstm_common.cpp
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(220): error: linkage specification is incompatible with previous "SbaStream_init_empty"
+/home/skchoe/project-gpu/inc/gstm_common.h(86): here
+
+../src/gstm_driver.cu(511): error: linkage specification is incompatible with previous "warning_for_non_csr"
+/home/skchoe/project-gpu/inc/gstm_common.h(74): here
+
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(708): error: linkage specification is incompatible with previous "sba_solve_csr"
+/home/skchoe/project-gpu/inc/gstm_common.h(78): here
+
+../src/gstm_driver.cu(1074): error: linkage specification is incompatible with previous "sba_solve_stm"
+/home/skchoe/project-gpu/inc/gstm_common.h(76): here
+
+4 errors detected in the compilation of "/tmp/tmpxft_000010bb_00000000-6_gstm_driver.cpp1.ii".
+make: *** [src/gstm_driver.o] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+Finished building: ../src/gstm_common.cpp
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+Finished building: ../src/gstm_driver.cu
+ 
+Building file: ../src/gstm_kernel.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_kernel.d" "../src/gstm_kernel.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_kernel.o" "../src/gstm_kernel.cu"
+../src/gstm_kernel.cu(280): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(434): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(478): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(280): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(434): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(478): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(187): Warning: Cannot tell what pointer points to, assuming global memory space
+../src/gstm_kernel.cu(440): Warning: Cannot tell what pointer points to, assuming global memory space
+Finished building: ../src/gstm_kernel.cu
+ 
+Building target: libsba_culib.so
+Invoking: NVCC Linker
+nvcc -shared -link -o  "libsba_culib.so"  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o   
+Finished building target: libsba_culib.so
+ 
+make --no-print-directory post-build
+cp libsba_culib.so "/home/skchoe/project-gpu/lib";
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.c
+Invoking: GCC C Compiler
+gcc -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:3:0:
+/home/skchoe/project-gpu/inc/gstm_common.h:4:8: error: expected identifier or ‘(’ before string constant
+../src/main.c:5:8: error: expected identifier or ‘(’ before string constant
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+Finished building: ../src/gstm_common.cpp
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+Finished building: ../src/gstm_driver.cu
+ 
+Building file: ../src/gstm_kernel.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_kernel.d" "../src/gstm_kernel.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_kernel.o" "../src/gstm_kernel.cu"
+../src/gstm_kernel.cu(280): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(434): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(478): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(280): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(434): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(478): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(187): Warning: Cannot tell what pointer points to, assuming global memory space
+../src/gstm_kernel.cu(440): Warning: Cannot tell what pointer points to, assuming global memory space
+Finished building: ../src/gstm_kernel.cu
+ 
+Building target: libsba_culib.so
+Invoking: NVCC Linker
+nvcc -shared -link -o  "libsba_culib.so"  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o   
+Finished building target: libsba_culib.so
+ 
+make --no-print-directory post-build
+cp libsba_culib.so "/home/skchoe/project-gpu/lib";
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.c
+Invoking: GCC C Compiler
+gcc -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:3:0:
+/home/skchoe/project-gpu/inc/gstm_common.h:4:8: error: expected identifier or ‘(’ before string constant
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.c
+Invoking: GCC C Compiler
+gcc -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_a_constraint(byte*, size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:46:6: error: previous declaration of ‘void print_a_constraint(byte*, size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:11:85: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_var_constraints(byte**, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:44:6: error: previous declaration of ‘void print_var_constraints(byte**, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:32:54: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:47:6: error: previous declaration of ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:57:139: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:49:6: error: previous declaration of ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:109:62: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:52:6: error: previous declaration of ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:124:114: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte* streamizer(byte*, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:59:7: error: previous declaration of ‘byte* streamizer(byte*, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:148:55: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2pchar(int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:60:6: error: previous declaration of ‘void int2pchar(int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:153:35: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int least_upper_binary(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:40:14: error: previous declaration of ‘unsigned int least_upper_binary(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:162:40: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int size2store(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:39:14: error: previous declaration of ‘unsigned int size2store(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:167:32: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void array_num_const_to_string(int*, int, int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:61:6: error: previous declaration of ‘void array_num_const_to_string(int*, int, int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:176:92: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void fill_char(int, byte*, char)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:63:6: error: previous declaration of ‘void fill_char(int, byte*, char)’ with ‘C++’ linkage
+../src/gstm_common.cpp:192:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2bytes(int, byte*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:64:6: error: previous declaration of ‘void int2bytes(int, byte*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:202:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void bytes2int(byte*, int*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:55:6: error: previous declaration of ‘void bytes2int(byte*, int*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:217:51: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte getRandomConstraintName()’:
+/home/skchoe/project-gpu/inc/gstm_common.h:66:6: error: previous declaration of ‘byte getRandomConstraintName()’ with ‘C++’ linkage
+../src/gstm_common.cpp:231:30: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int constname2numconstvar(byte)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:67:5: error: previous declaration of ‘int constname2numconstvar(byte)’ with ‘C++’ linkage
+../src/gstm_common.cpp:241:33: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int longest_constraint_byte(size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:68:5: error: previous declaration of ‘int longest_constraint_byte(size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:258:74: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘size_t constraint_length(byte, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:69:8: error: previous declaration of ‘size_t constraint_length(byte, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:268:76: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int max_num_constraints(int, int*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:70:5: error: previous declaration of ‘int max_num_constraints(int, int*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:283:49: error: conflicts with new declaration with ‘C’ linkage
+make: *** [src/gstm_common.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project sba_cuapp2 ****
+
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp:3:25: fatal error: gstm_common.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp:3:25: fatal error: gstm_common.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp:3:25: fatal error: gstm_common.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp:2:25: fatal error: gstm_common.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp:5:25: fatal error: gstm_common.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_a_constraint(byte*, size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:36:6: error: previous declaration of ‘void print_a_constraint(byte*, size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:19:85: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_var_constraints(byte**, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:34:6: error: previous declaration of ‘void print_var_constraints(byte**, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:40:54: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:37:6: error: previous declaration of ‘void print_constraint_stream(int, size_t, SbaStream*, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:65:139: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:39:6: error: previous declaration of ‘void print_constraints_csr(int, int, size_t, int*, int*, byte*, size_t, int, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:117:62: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:42:6: error: previous declaration of ‘void print_constraints_gpu(int, size_t, int*, byte*, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:132:114: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte* streamizer(byte*, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:49:7: error: previous declaration of ‘byte* streamizer(byte*, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:156:55: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2pchar(int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:50:6: error: previous declaration of ‘void int2pchar(int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:161:35: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int least_upper_binary(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:30:14: error: previous declaration of ‘unsigned int least_upper_binary(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:170:40: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘unsigned int size2store(float)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:29:14: error: previous declaration of ‘unsigned int size2store(float)’ with ‘C++’ linkage
+../src/gstm_common.cpp:175:32: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void array_num_const_to_string(int*, int, int, byte*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:51:6: error: previous declaration of ‘void array_num_const_to_string(int*, int, int, byte*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:184:92: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void fill_char(int, byte*, char)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:53:6: error: previous declaration of ‘void fill_char(int, byte*, char)’ with ‘C++’ linkage
+../src/gstm_common.cpp:200:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void int2bytes(int, byte*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:54:6: error: previous declaration of ‘void int2bytes(int, byte*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:210:50: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘void bytes2int(byte*, int*, size_t)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:45:6: error: previous declaration of ‘void bytes2int(byte*, int*, size_t)’ with ‘C++’ linkage
+../src/gstm_common.cpp:225:51: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘byte getRandomConstraintName()’:
+/home/skchoe/project-gpu/inc/gstm_common.h:56:6: error: previous declaration of ‘byte getRandomConstraintName()’ with ‘C++’ linkage
+../src/gstm_common.cpp:239:30: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int constname2numconstvar(byte)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:57:5: error: previous declaration of ‘int constname2numconstvar(byte)’ with ‘C++’ linkage
+../src/gstm_common.cpp:249:33: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int longest_constraint_byte(size_t, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:58:5: error: previous declaration of ‘int longest_constraint_byte(size_t, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:266:74: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘size_t constraint_length(byte, int, int)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:59:8: error: previous declaration of ‘size_t constraint_length(byte, int, int)’ with ‘C++’ linkage
+../src/gstm_common.cpp:276:76: error: conflicts with new declaration with ‘C’ linkage
+/home/skchoe/project-gpu/inc/gstm_common.h: In function ‘int max_num_constraints(int, int*)’:
+/home/skchoe/project-gpu/inc/gstm_common.h:60:5: error: previous declaration of ‘int max_num_constraints(int, int*)’ with ‘C++’ linkage
+../src/gstm_common.cpp:291:49: error: conflicts with new declaration with ‘C’ linkage
+make: *** [src/gstm_common.o] Error 1
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project sba_culib ****
+
+make clean 
+rm -rf  ./src/gstm_driver.d ./src/gstm_kernel.d  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o  ./src/gstm_common.d  libsba_culib.so
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.c
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.c"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.c"
+Finished building: ../src/gstm_common.c
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(1212): error: expected a declaration
+
+At end of source: warning: parsing restarts here after previous syntax error
+
+1 error detected in the compilation of "/tmp/tmpxft_00001dc2_00000000-6_gstm_driver.cpp1.ii".
+make: *** [src/gstm_driver.o] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+Finished building: ../src/gstm_driver.cu
+ 
+Building file: ../src/gstm_kernel.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_kernel.d" "../src/gstm_kernel.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_kernel.o" "../src/gstm_kernel.cu"
+../src/gstm_kernel.cu(11): error: linkage specification is incompatible with previous "sum_const_sizes"
+/home/skchoe/project-gpu/inc/gstm_common.h(74): here
+
+../src/gstm_kernel.cu(32): error: identifier "printf" is undefined
+
+../src/gstm_kernel.cu(122): error: identifier "printf" is undefined
+
+../src/gstm_kernel.cu(280): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(434): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(478): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_asis" was set but never used
+
+At end of source: error: expected a "}"
+
+4 errors detected in the compilation of "/tmp/tmpxft_00001e56_00000000-6_gstm_kernel.cpp1.ii".
+make: *** [src/gstm_kernel.o] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_kernel.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_kernel.d" "../src/gstm_kernel.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_kernel.o" "../src/gstm_kernel.cu"
+../src/gstm_kernel.cu(32): error: identifier "printf" is undefined
+
+../src/gstm_kernel.cu(122): error: identifier "printf" is undefined
+
+../src/gstm_kernel.cu(280): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(434): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(478): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_asis" was set but never used
+
+2 errors detected in the compilation of "/tmp/tmpxft_00001eaa_00000000-6_gstm_kernel.cpp1.ii".
+make: *** [src/gstm_kernel.o] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_kernel.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_kernel.d" "../src/gstm_kernel.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_kernel.o" "../src/gstm_kernel.cu"
+../src/gstm_kernel.cu(281): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(435): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(480): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(281): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(435): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(480): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(188): Warning: Cannot tell what pointer points to, assuming global memory space
+../src/gstm_kernel.cu(441): Warning: Cannot tell what pointer points to, assuming global memory space
+Finished building: ../src/gstm_kernel.cu
+ 
+Building target: libsba_culib.so
+Invoking: NVCC Linker
+nvcc -shared -link -o  "libsba_culib.so"  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o   
+Finished building target: libsba_culib.so
+ 
+make --no-print-directory post-build
+cp libsba_culib.so "/home/skchoe/project-gpu/lib";
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp:4:25: fatal error: gstm_common.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:4:0:
+/home/skchoe/project-gpu/inc/gstm_common.h:36:39: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:37:43: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:39:60: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:40:39: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:42:41: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:45:33: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:54:32: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:58:29: error: ‘size_t’ was not declared in this scope
+/home/skchoe/project-gpu/inc/gstm_common.h:58:50: error: expected primary-expression before ‘int’
+/home/skchoe/project-gpu/inc/gstm_common.h:58:74: error: expression list treated as compound expression in initializer [-fpermissive]
+/home/skchoe/project-gpu/inc/gstm_common.h:59:1: error: ‘size_t’ does not name a type
+/home/skchoe/project-gpu/inc/gstm_common.h:63:47: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:64:48: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:67:51: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:69:51: error: ‘size_t’ has not been declared
+/home/skchoe/project-gpu/inc/gstm_common.h:74:1: error: ‘size_t’ does not name a type
+/home/skchoe/project-gpu/inc/gstm_common.h:84:67: error: ‘size_t’ has not been declared
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.c
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.c"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.c"
+Finished building: ../src/gstm_common.c
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(586): warning: variable "sz_elts" was set but never used
+
+Finished building: ../src/gstm_driver.cu
+ 
+Building file: ../src/gstm_kernel.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_kernel.d" "../src/gstm_kernel.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_kernel.o" "../src/gstm_kernel.cu"
+../src/gstm_kernel.cu(281): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(435): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(480): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(281): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(435): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(479): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(480): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(188): Warning: Cannot tell what pointer points to, assuming global memory space
+../src/gstm_kernel.cu(441): Warning: Cannot tell what pointer points to, assuming global memory space
+Finished building: ../src/gstm_kernel.cu
+ 
+Building target: libsba_culib.so
+Invoking: NVCC Linker
+nvcc -shared -link -o  "libsba_culib.so"  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o   
+Finished building target: libsba_culib.so
+ 
+make --no-print-directory post-build
+cp libsba_culib.so "/home/skchoe/project-gpu/lib";
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main(int, char**)’:
+../src/main.cpp:25:35: error: ‘pow’ was not declared in this scope
+../src/main.cpp:12:8: warning: unused variable ‘is_uniform_var_width’ [-Wunused-variable]
+../src/main.cpp:13:8: warning: unused variable ‘is_equal_const_size’ [-Wunused-variable]
+../src/main.cpp:26:14: warning: unused variable ‘num_const_limit’ [-Wunused-variable]
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main(int, char**)’:
+../src/main.cpp:39:8: error: redeclaration of ‘int is_uniform_var_width’
+../src/main.cpp:21:8: error: ‘int is_uniform_var_width’ previously declared here
+../src/main.cpp:40:8: error: redeclaration of ‘int is_equal_const_size’
+../src/main.cpp:22:8: error: ‘int is_equal_const_size’ previously declared here
+../src/main.cpp:45:8: error: redeclaration of ‘int exp0’
+../src/main.cpp:27:8: error: ‘int exp0’ previously declared here
+../src/main.cpp:52:14: error: redeclaration of ‘const int NUM_VAR’
+../src/main.cpp:34:14: error: ‘const int NUM_VAR’ previously declared here
+../src/main.cpp:53:14: error: redeclaration of ‘const int num_const_limit’
+../src/main.cpp:35:14: error: ‘const int num_const_limit’ previously declared here
+../src/main.cpp:21:8: warning: unused variable ‘is_uniform_var_width’ [-Wunused-variable]
+../src/main.cpp:22:8: warning: unused variable ‘is_equal_const_size’ [-Wunused-variable]
+../src/main.cpp:35:14: warning: unused variable ‘num_const_limit’ [-Wunused-variable]
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main(int, char**)’:
+../src/main.cpp:25:35: error: ‘pow’ was not declared in this scope
+../src/main.cpp:12:8: warning: unused variable ‘is_uniform_var_width’ [-Wunused-variable]
+../src/main.cpp:13:8: warning: unused variable ‘is_equal_const_size’ [-Wunused-variable]
+../src/main.cpp:26:14: warning: unused variable ‘num_const_limit’ [-Wunused-variable]
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main(int, char**)’:
+../src/main.cpp:22:8: warning: unused variable ‘is_uniform_var_width’ [-Wunused-variable]
+../src/main.cpp:23:8: warning: unused variable ‘is_equal_const_size’ [-Wunused-variable]
+../src/main.cpp:36:14: warning: unused variable ‘num_const_limit’ [-Wunused-variable]
+Finished building: ../src/main.cpp
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main(int, char**)’:
+../src/main.cpp:51:156: error: ‘create_random_constraint_stream’ was not declared in this scope
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘void gen_a_constraint(int, byte, int, size_t, byte*, int)’:
+../src/main.cpp:26:32: error: ‘fmod’ was not declared in this scope
+../src/main.cpp:43:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_a_constraint(byte, int*, int, size_t, byte*, int, int)’:
+../src/main.cpp:66:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_constraint_stream1(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:141:37: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_constraint_stream2(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:224:36: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_constraint_stream_if(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:303:36: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_random_constraint_stream(int, int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:403:34: error: ‘memset’ was not declared in this scope
+../src/main.cpp:417:48: error: ‘memcpy’ was not declared in this scope
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘void gen_a_constraint(int, byte, int, size_t, byte*, int)’:
+../src/main.cpp:44:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_a_constraint(byte, int*, int, size_t, byte*, int, int)’:
+../src/main.cpp:67:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_constraint_stream1(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:142:37: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_constraint_stream2(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:225:36: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_constraint_stream_if(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:304:36: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_random_constraint_stream(int, int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:404:34: error: ‘memset’ was not declared in this scope
+../src/main.cpp:418:48: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘int pow(int, int)’:
+../src/main.cpp:465:26: error: declaration of C function ‘int pow(int, int)’ conflicts with
+/usr/include/i386-linux-gnu/bits/mathcalls.h:155:1: error: previous declaration ‘double pow(double, double)’ here
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘void gen_a_constraint(int, byte, int, size_t, byte*, int)’:
+../src/main.cpp:44:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_a_constraint(byte, int*, int, size_t, byte*, int, int)’:
+../src/main.cpp:67:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_constraint_stream1(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:142:37: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_constraint_stream2(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:225:36: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_constraint_stream_if(int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:304:36: error: ‘memcpy’ was not declared in this scope
+../src/main.cpp: In function ‘void create_random_constraint_stream(int, int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:404:34: error: ‘memset’ was not declared in this scope
+../src/main.cpp:418:48: error: ‘memcpy’ was not declared in this scope
+make: *** [src/main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘void gen_a_constraint(int, byte, int, size_t, byte*, int)’:
+../src/main.cpp:45:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_a_constraint(byte, int*, int, size_t, byte*, int, int)’:
+../src/main.cpp:68:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_random_constraint_stream(int, int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:405:34: warning: passing NULL to non-pointer argument 2 of ‘void* memset(void*, int, size_t)’ [-Wconversion-null]
+Finished building: ../src/main.cpp
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib
+./src/main.o: In function `create_constraint_stream1':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:114: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream2':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:199: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream_if':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:279: undefined reference to `sum_const_sizes'
+./src/main.o: In function `solver_constraint_wrapper_gpu':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:455: undefined reference to `sba_solve_stm'
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:459: undefined reference to `sba_solve_csr'
+./src/main.o: In function `main':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:518: undefined reference to `SbaStream_init_empty'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `warning_for_non_csr'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `longest_constraint_byte(unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `least_upper_binary(float)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `max_num_constraints(int, int*)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constname2numconstvar(unsigned char)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constraint_length(unsigned char, int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `print_a_constraint(unsigned char*, unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `bytes2int(unsigned char*, int*, unsigned int)'
+collect2: ld returned 1 exit status
+make: *** [sba_cuapp2] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib -lm
+./src/main.o: In function `create_constraint_stream1':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:114: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream2':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:199: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream_if':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:279: undefined reference to `sum_const_sizes'
+./src/main.o: In function `solver_constraint_wrapper_gpu':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:455: undefined reference to `sba_solve_stm'
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:459: undefined reference to `sba_solve_csr'
+./src/main.o: In function `main':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:518: undefined reference to `SbaStream_init_empty'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `warning_for_non_csr'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `longest_constraint_byte(unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `least_upper_binary(float)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `max_num_constraints(int, int*)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constname2numconstvar(unsigned char)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constraint_length(unsigned char, int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `print_a_constraint(unsigned char*, unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `bytes2int(unsigned char*, int*, unsigned int)'
+collect2: ld returned 1 exit status
+make: *** [sba_cuapp2] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib -lm
+./src/main.o: In function `create_constraint_stream1':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:114: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream2':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:199: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream_if':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:279: undefined reference to `sum_const_sizes'
+./src/main.o: In function `solver_constraint_wrapper_gpu':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:455: undefined reference to `sba_solve_stm'
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:459: undefined reference to `sba_solve_csr'
+./src/main.o: In function `main':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:518: undefined reference to `SbaStream_init_empty'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `warning_for_non_csr'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `longest_constraint_byte(unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `least_upper_binary(float)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `max_num_constraints(int, int*)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constname2numconstvar(unsigned char)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constraint_length(unsigned char, int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `print_a_constraint(unsigned char*, unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `bytes2int(unsigned char*, int*, unsigned int)'
+collect2: ld returned 1 exit status
+make: *** [sba_cuapp2] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.c
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.c"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.c"
+Finished building: ../src/gstm_common.c
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(218): error: linkage specification is incompatible with previous "SbaStream_init_empty"
+/home/skchoe/project-gpu/inc/gstm_common.h(77): here
+
+../src/gstm_driver.cu(509): error: linkage specification is incompatible with previous "warning_for_non_csr"
+/home/skchoe/project-gpu/inc/gstm_common.h(65): here
+
+../src/gstm_driver.cu(583): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(705): error: linkage specification is incompatible with previous "sba_solve_csr"
+/home/skchoe/project-gpu/inc/gstm_common.h(69): here
+
+../src/gstm_driver.cu(1071): error: linkage specification is incompatible with previous "sba_solve_stm"
+/home/skchoe/project-gpu/inc/gstm_common.h(67): here
+
+4 errors detected in the compilation of "/tmp/tmpxft_00002802_00000000-6_gstm_driver.cpp1.ii".
+make: *** [src/gstm_driver.o] Error 2
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project sba_cuapp ****
+
+make clean 
+rm -rf  sba_cuapp
+ 
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project sba_cuapp2 ****
+
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project sba_culib ****
+
+make clean 
+rm -rf  ./src/gstm_driver.d ./src/gstm_kernel.d  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o  ./src/gstm_common.d  libsba_culib.so
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I/home/skchoe/project-gpu/inc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘void gen_a_constraint(int, byte, int, size_t, byte*, int)’:
+../src/main.cpp:45:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_a_constraint(byte, int*, int, size_t, byte*, int, int)’:
+../src/main.cpp:68:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/main.cpp: In function ‘void create_random_constraint_stream(int, int, size_t, int*, byte**, byte**, int, int)’:
+../src/main.cpp:405:34: warning: passing NULL to non-pointer argument 2 of ‘void* memset(void*, int, size_t)’ [-Wconversion-null]
+Finished building: ../src/main.cpp
+ 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib -lm
+./src/main.o: In function `create_constraint_stream1':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:114: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream2':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:199: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream_if':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:279: undefined reference to `sum_const_sizes'
+./src/main.o: In function `solver_constraint_wrapper_gpu':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:455: undefined reference to `sba_solve_stm'
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:459: undefined reference to `sba_solve_csr'
+./src/main.o: In function `main':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:518: undefined reference to `SbaStream_init_empty'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `warning_for_non_csr'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `longest_constraint_byte(unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `least_upper_binary(float)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `max_num_constraints(int, int*)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constname2numconstvar(unsigned char)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constraint_length(unsigned char, int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `print_a_constraint(unsigned char*, unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `bytes2int(unsigned char*, int*, unsigned int)'
+collect2: ld returned 1 exit status
+make: *** [sba_cuapp2] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.c
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.c"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.c"
+Finished building: ../src/gstm_common.c
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(218): error: linkage specification is incompatible with previous "SbaStream_init_empty"
+/home/skchoe/project-gpu/inc/gstm_common.h(77): here
+
+../src/gstm_driver.cu(509): error: linkage specification is incompatible with previous "warning_for_non_csr"
+/home/skchoe/project-gpu/inc/gstm_common.h(65): here
+
+../src/gstm_driver.cu(583): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(705): error: linkage specification is incompatible with previous "sba_solve_csr"
+/home/skchoe/project-gpu/inc/gstm_common.h(69): here
+
+../src/gstm_driver.cu(1071): error: linkage specification is incompatible with previous "sba_solve_stm"
+/home/skchoe/project-gpu/inc/gstm_common.h(67): here
+
+4 errors detected in the compilation of "/tmp/tmpxft_0000289a_00000000-6_gstm_driver.cpp1.ii".
+make: *** [src/gstm_driver.o] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib -lm
+./src/main.o: In function `create_constraint_stream1':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:114: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream2':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:199: undefined reference to `sum_const_sizes'
+./src/main.o: In function `create_constraint_stream_if':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:279: undefined reference to `sum_const_sizes'
+./src/main.o: In function `solver_constraint_wrapper_gpu':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:455: undefined reference to `sba_solve_stm'
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:459: undefined reference to `sba_solve_csr'
+./src/main.o: In function `main':
+/home/skchoe/project-gpu/stasis/c_native/sba_cuapp2/Debug/../src/main.cpp:518: undefined reference to `SbaStream_init_empty'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `warning_for_non_csr'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `longest_constraint_byte(unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `least_upper_binary(float)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `max_num_constraints(int, int*)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constname2numconstvar(unsigned char)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `constraint_length(unsigned char, int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `print_a_constraint(unsigned char*, unsigned int, int)'
+/home/skchoe/project-gpu/lib/libsba_culib.so: undefined reference to `bytes2int(unsigned char*, int*, unsigned int)'
+collect2: ld returned 1 exit status
+make: *** [sba_cuapp2] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.c
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.c"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.c"
+In file included from ../src/gstm_common.c:15:0:
+/home/skchoe/project-gpu/inc/gstm_common.h:4:8: error: expected identifier or ‘(’ before string constant
+../src/gstm_common.c:18:25: error: unknown type name ‘byte’
+../src/gstm_common.c:39:29: error: unknown type name ‘byte’
+../src/gstm_common.c:48:55: error: unknown type name ‘byte’
+../src/gstm_common.c:64:65: error: unknown type name ‘SbaStream’
+../src/gstm_common.c:115:27: error: unknown type name ‘byte’
+../src/gstm_common.c:131:76: error: unknown type name ‘byte’
+../src/gstm_common.c:155:1: error: unknown type name ‘byte’
+../src/gstm_common.c:155:19: error: unknown type name ‘byte’
+../src/gstm_common.c:160:25: error: unknown type name ‘byte’
+../src/gstm_common.c:183:79: error: unknown type name ‘byte’
+../src/gstm_common.c:199:29: error: unknown type name ‘byte’
+../src/gstm_common.c:209:23: error: unknown type name ‘byte’
+../src/gstm_common.c:224:16: error: unknown type name ‘byte’
+../src/gstm_common.c:238:1: error: unknown type name ‘byte’
+../src/gstm_common.c: In function ‘getRandomConstraintName’:
+../src/gstm_common.c:241:3: error: unknown type name ‘byte’
+../src/gstm_common.c: At top level:
+../src/gstm_common.c:248:27: error: unknown type name ‘byte’
+../src/gstm_common.c:275:26: error: unknown type name ‘byte’
+make: *** [src/gstm_common.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.c
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.c"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.c"
+In file included from ../src/gstm_common.c:15:0:
+/home/skchoe/project-gpu/inc/gstm_common.h:4:8: error: expected identifier or ‘(’ before string constant
+../src/gstm_common.c:18:25: error: unknown type name ‘byte’
+../src/gstm_common.c:39:29: error: unknown type name ‘byte’
+../src/gstm_common.c:48:55: error: unknown type name ‘byte’
+../src/gstm_common.c:64:65: error: unknown type name ‘SbaStream’
+../src/gstm_common.c:115:27: error: unknown type name ‘byte’
+../src/gstm_common.c:131:76: error: unknown type name ‘byte’
+../src/gstm_common.c:155:1: error: unknown type name ‘byte’
+../src/gstm_common.c:155:19: error: unknown type name ‘byte’
+../src/gstm_common.c:160:25: error: unknown type name ‘byte’
+../src/gstm_common.c:183:79: error: unknown type name ‘byte’
+../src/gstm_common.c:199:29: error: unknown type name ‘byte’
+../src/gstm_common.c:209:23: error: unknown type name ‘byte’
+../src/gstm_common.c:224:16: error: unknown type name ‘byte’
+../src/gstm_common.c:238:1: error: unknown type name ‘byte’
+../src/gstm_common.c: In function ‘getRandomConstraintName’:
+../src/gstm_common.c:241:3: error: unknown type name ‘byte’
+../src/gstm_common.c: At top level:
+../src/gstm_common.c:248:27: error: unknown type name ‘byte’
+../src/gstm_common.c:275:26: error: unknown type name ‘byte’
+make: *** [src/gstm_common.o] Error 1
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project sba_culib ****
+
+make clean 
+rm -rf  ./src/gstm_driver.d ./src/gstm_kernel.d  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o  ./src/gstm_common.d  libsba_culib.so
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+Finished building: ../src/gstm_common.cpp
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(24): error: more than one instance of overloaded function "get_varstr_inconst" has "C" linkage
+
+../src/gstm_driver.cu(42): error: more than one instance of overloaded function "get_variable_inconst" has "C" linkage
+
+../src/gstm_driver.cu(583): warning: variable "sz_elts" was set but never used
+
+2 errors detected in the compilation of "/tmp/tmpxft_00002ad0_00000000-6_gstm_driver.cpp1.ii".
+make: *** [src/gstm_driver.o] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+Building file: ../src/gstm_common.cpp
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_common.d" "../src/gstm_common.cpp"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_common.o" "../src/gstm_common.cpp"
+Finished building: ../src/gstm_common.cpp
+ 
+Building file: ../src/gstm_driver.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_driver.d" "../src/gstm_driver.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_driver.o" "../src/gstm_driver.cu"
+../src/gstm_driver.cu(582): warning: variable "sz_elts" was set but never used
+
+../src/gstm_driver.cu(582): warning: variable "sz_elts" was set but never used
+
+Finished building: ../src/gstm_driver.cu
+ 
+Building file: ../src/gstm_kernel.cu
+Invoking: NVCC Compiler
+nvcc -I/home/skchoe/project-gpu/inc -G -g -O0 -gencode arch=compute_12,code=sm_12 -odir "src" -M -o "src/gstm_kernel.d" "../src/gstm_kernel.cu"
+nvcc --compile -G -I/home/skchoe/project-gpu/inc -O0 -g -gencode arch=compute_12,code=compute_12 -gencode arch=compute_12,code=sm_12 -o  "src/gstm_kernel.o" "../src/gstm_kernel.cu"
+../src/gstm_kernel.cu(278): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(432): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(476): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(477): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(278): warning: variable "pos_input" was declared but never referenced
+
+../src/gstm_kernel.cu(432): warning: variable "constnames" was declared but never referenced
+
+../src/gstm_kernel.cu(476): warning: variable "p_slock_const" was set but never used
+
+../src/gstm_kernel.cu(477): warning: variable "p_slock_asis" was set but never used
+
+../src/gstm_kernel.cu(185): Warning: Cannot tell what pointer points to, assuming global memory space
+../src/gstm_kernel.cu(438): Warning: Cannot tell what pointer points to, assuming global memory space
+Finished building: ../src/gstm_kernel.cu
+ 
+Building target: libsba_culib.so
+Invoking: NVCC Linker
+nvcc -shared -link -o  "libsba_culib.so"  ./src/gstm_common.o ./src/gstm_driver.o ./src/gstm_kernel.o   
+Finished building target: libsba_culib.so
+ 
+make --no-print-directory post-build
+cp libsba_culib.so "/home/skchoe/project-gpu/lib";
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+Building target: sba_cuapp2
+Invoking: GCC C++ Linker
+g++ -L/home/skchoe/project-gpu/lib -o "sba_cuapp2"  ./src/main.o   -lsba_culib -lm
+Finished building target: sba_cuapp2
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp ****
+
+Nothing to build for project sba_cuapp
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_culib ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project sba_cuapp2 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="328" key="DIALOG_WIDTH"/>
+		<item value="256" key="DIALOG_Y_ORIGIN"/>
+		<item value="477" key="DIALOG_HEIGHT"/>
+		<item value="60" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="true" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="INIT-&gt; no constraint exist" key="selection"/>
+		<list key="findhistory">
+			<item value="INIT-&gt; no constraint exist"/>
+			<item value="gpu time glb"/>
+			<item value="get_variable_inconst"/>
+			<item value="pow"/>
+			<item value="create"/>
+			<item value="num_const_limit"/>
+			<item value="num_const_init"/>
+			<item value="num"/>
+		</list>
+		<list key="replacehistory">
+			<item value="byte"/>
+			<item value="CudaSafeCall"/>
+		</list>
+	</section>
+</section>
